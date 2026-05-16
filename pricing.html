@@ -441,8 +441,61 @@
       <p>ComplyScope identifies compliance gaps. Final review and sign-off remains with your appointed duty holder.</p>
     </div>
 
+    <!-- ROI Calculator -->
+    <p class="section-label" style="margin-bottom:12px;">ROI Calculator</p>
+    <div class="roi-section">
+      <h3>What does manual document review cost you?</h3>
+      <p>Enter your numbers. See your return.</p>
+      <div class="roi-inputs">
+        <div class="roi-ig">
+          <label>Compliance documents reviewed per month</label>
+          <input type="number" id="roi-rams" value="20" min="1" oninput="calcROI()">
+        </div>
+        <div class="roi-ig">
+          <label>Average time spent per document review (hours)</label>
+          <input type="number" id="roi-hours" value="1.5" min="0.5" step="0.5" oninput="calcROI()">
+        </div>
+        <div class="roi-ig">
+          <label>Hourly cost of reviewer (&euro;)</label>
+          <input type="number" id="roi-rate" value="50" min="1" oninput="calcROI()">
+        </div>
+        <div class="roi-ig">
+          <label>Number of subcontractors managed</label>
+          <input type="number" id="roi-subs" value="10" min="1" oninput="calcROI()">
+        </div>
+      </div>
+      <div class="roi-outputs">
+        <div class="roi-out">
+          <label>Monthly review cost</label>
+          <div class="roi-val" id="out-monthly">&euro;1,500</div>
+        </div>
+        <div class="roi-out">
+          <label>Annual review cost</label>
+          <div class="roi-val" id="out-annual">&euro;18,000</div>
+        </div>
+        <div class="roi-out">
+          <label>Compliance Register / Full Suite (annual)</label>
+          <div class="roi-val" style="font-size:18px; line-height:1.5;" id="out-cs-cost">&euro;4,788 &nbsp;/&nbsp; &euro;9,000</div>
+        </div>
+        <div class="roi-out roi-green">
+          <label>Annual saving (vs Compliance Register)</label>
+          <div class="roi-val" id="out-saving">&euro;13,212</div>
+        </div>
+        <div class="roi-out roi-gold">
+          <label>ROI</label>
+          <div class="roi-val" id="out-roi">3.8&times; return</div>
+        </div>
+        <div class="roi-out">
+          <label>Hours returned to higher-value work per year</label>
+          <div class="roi-val" id="out-hours">360 hrs</div>
+        </div>
+      </div>
+      <p class="roi-disclaimer">Based on your inputs. Actual savings will vary. ComplyScope annual pricing excludes VAT.</p>
+      <a href="https://app.complyscope.ie/signup" class="btn-primary">Start free &mdash; no card required &rarr;</a>
+    </div>
+
     <!-- Feature comparison -->
-    <div class="compare-wrap">
+    <div class="compare-wrap" style="margin-top:56px;">
       <h3>Compare plans</h3>
       <div class="compare-mobile-sel" id="cmt-wrap">
         <div class="cmt active" onclick="showCCol(1,this)">Free</div>
@@ -484,58 +537,6 @@
           </tbody>
         </table>
       </div>
-    </div>
-
-    <!-- ROI Calculator -->
-    <div class="roi-section">
-      <h3>What does manual document review cost you?</h3>
-      <p>Enter your numbers. See your return.</p>
-      <div class="roi-inputs">
-        <div class="roi-ig">
-          <label>Compliance documents reviewed per month</label>
-          <input type="number" id="roi-rams" value="20" min="1" oninput="calcROI()">
-        </div>
-        <div class="roi-ig">
-          <label>Average hours to review one document</label>
-          <input type="number" id="roi-hours" value="2" min="0.5" step="0.5" oninput="calcROI()">
-        </div>
-        <div class="roi-ig">
-          <label>Hourly cost of reviewer (&euro;)</label>
-          <input type="number" id="roi-rate" value="50" min="1" oninput="calcROI()">
-        </div>
-        <div class="roi-ig">
-          <label>Number of subcontractors managed</label>
-          <input type="number" id="roi-subs" value="10" min="1" oninput="calcROI()">
-        </div>
-      </div>
-      <div class="roi-outputs">
-        <div class="roi-out">
-          <label>Monthly review cost</label>
-          <div class="roi-val" id="out-monthly">&euro;2,000</div>
-        </div>
-        <div class="roi-out">
-          <label>Annual review cost</label>
-          <div class="roi-val" id="out-annual">&euro;24,000</div>
-        </div>
-        <div class="roi-out">
-          <label>Compliance Register / Full Suite (annual)</label>
-          <div class="roi-val" style="font-size:18px; line-height:1.5;" id="out-cs-cost">&euro;4,788 &nbsp;/&nbsp; &euro;9,000</div>
-        </div>
-        <div class="roi-out roi-green">
-          <label>Annual saving (vs Compliance Register)</label>
-          <div class="roi-val" id="out-saving">&euro;19,212</div>
-        </div>
-        <div class="roi-out roi-gold">
-          <label>ROI</label>
-          <div class="roi-val" id="out-roi">5.0&times; return</div>
-        </div>
-        <div class="roi-out">
-          <label>Hours returned to higher-value work per year</label>
-          <div class="roi-val" id="out-hours">480 hrs</div>
-        </div>
-      </div>
-      <p class="roi-disclaimer">Based on your inputs. Actual savings will vary. ComplyScope annual pricing excludes VAT.</p>
-      <a href="https://app.complyscope.ie/signup" class="btn-primary">Start free &mdash; no card required &rarr;</a>
     </div>
 
   </div>
