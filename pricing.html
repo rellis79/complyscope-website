@@ -248,7 +248,7 @@
 
     /* ROI Calculator */
     .roi-section { background:var(--cream); border:2px solid var(--navy); border-radius:4px; padding:40px; margin-bottom:0; }
-    .roi-section > h3 { font-family:Georgia,serif; font-size:20px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+    .roi-section > h3 { font-family:Georgia,serif; font-size:24px; font-weight:700; color:var(--navy); margin-bottom:6px; }
     .roi-section > p { font-size:15px; color:var(--muted); margin-bottom:32px; }
     .roi-inputs { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:32px; }
     .roi-ig label { display:block; font-size:11px; font-weight:700; color:var(--navy); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:6px; }
@@ -458,11 +458,7 @@
         </div>
         <div class="roi-ig">
           <label>Hourly cost of reviewer (&euro;)</label>
-          <input type="number" id="roi-rate" value="35" min="1" oninput="calcROI()">
-        </div>
-        <div class="roi-ig">
-          <label>Number of subcontractors managed</label>
-          <input type="number" id="roi-subs" value="10" min="1" oninput="calcROI()">
+          <input type="number" id="roi-rate" value="50" min="1" oninput="calcROI()">
         </div>
         <div class="roi-ig">
           <label>Documents requiring resubmission (%)</label>
@@ -473,11 +469,11 @@
       <div class="roi-outputs">
         <div class="roi-out">
           <label>Monthly review cost</label>
-          <div class="roi-val" id="out-monthly">&euro;1,365</div>
+          <div class="roi-val" id="out-monthly">&euro;1,950</div>
         </div>
         <div class="roi-out">
           <label>Annual review cost</label>
-          <div class="roi-val" id="out-annual">&euro;16,380</div>
+          <div class="roi-val" id="out-annual">&euro;23,400</div>
         </div>
         <div class="roi-out">
           <label>Compliance Register / Full Suite (annual)</label>
@@ -485,11 +481,11 @@
         </div>
         <div class="roi-out roi-green">
           <label>Annual saving (vs Compliance Register)</label>
-          <div class="roi-val" id="out-saving">&euro;11,592</div>
+          <div class="roi-val" id="out-saving">&euro;18,612</div>
         </div>
         <div class="roi-out roi-gold">
           <label>ROI</label>
-          <div class="roi-val" id="out-roi">3.4&times; return</div>
+          <div class="roi-val" id="out-roi">4.9&times; return</div>
         </div>
         <div class="roi-out">
           <label>Hours returned to higher-value work per year</label>
@@ -606,9 +602,9 @@
   }
 
   function calcROI() {
-    var rams = parseFloat(document.getElementById('roi-rams').value) || 0;
+    var rams  = parseFloat(document.getElementById('roi-rams').value)  || 0;
     var hours = parseFloat(document.getElementById('roi-hours').value) || 0;
-    var rate = parseFloat(document.getElementById('roi-rate').value) || 0;
+    var rate  = parseFloat(document.getElementById('roi-rate').value)  || 0;
     var resub = parseFloat(document.getElementById('roi-resub').value) || 0;
     var resubFactor = 1 + (resub / 100);
     var monthlyHours = rams * hours * resubFactor;
