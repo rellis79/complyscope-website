@@ -131,30 +131,57 @@
       padding: 72px 6vw 80px;
     }
 
-    .data-section {
+    /* ── ACCORDION ── */
+    .data-acc {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 4px;
-      padding: 32px 36px;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
+      overflow: hidden;
     }
-
-    .data-section.data-never {
+    .data-acc.data-never {
       background: #f0f7f3;
       border-color: #b8dfc5;
     }
-
-    .data-section h2 {
+    .data-acc-head {
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    .data-acc-head h2 {
       font-family: Georgia, serif;
       font-size: 18px;
       font-weight: 700;
       color: var(--navy);
-      margin-bottom: 20px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
+      margin: 0;
+      line-height: 1.3;
     }
-
-    .data-never h2 { border-bottom-color: #b8dfc5; }
+    .data-acc-icon {
+      font-size: 24px;
+      color: var(--gold);
+      flex-shrink: 0;
+      font-family: sans-serif;
+      font-weight: 300;
+      line-height: 1;
+      margin-left: 16px;
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+    .data-acc.open .data-acc-icon { transform: rotate(45deg); }
+    .data-acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .data-acc.open .data-acc-body { max-height: 600px; }
+    .data-acc-inner {
+      padding: 0 24px 24px;
+      border-top: 1px solid var(--border);
+    }
+    .data-acc.data-never .data-acc-inner { border-top-color: #b8dfc5; }
 
     .data-list { list-style: none; padding: 0; margin: 0; }
 
@@ -293,48 +320,76 @@
 <!-- CONTENT -->
 <div class="data-content">
 
-  <!-- Section 1 — What we access -->
-  <div class="data-section">
-    <h2>What ComplyScope accesses</h2>
-    <ul class="data-list">
-      <li><span class="data-icon icon-check">&#10003;</span> We read the documents you upload or share from your connected folder</li>
-      <li><span class="data-icon icon-check">&#10003;</span> We extract compliance-relevant content to generate your gap report or register</li>
-      <li><span class="data-icon icon-check">&#10003;</span> We store document metadata &mdash; file name, upload date, classification, and findings</li>
-      <li><span class="data-icon icon-check">&#10003;</span> We do not store the full content of your documents beyond what is needed to generate your report</li>
-    </ul>
+  <!-- Section 1 — What we access (closed by default) -->
+  <div class="data-acc">
+    <div class="data-acc-head" onclick="this.closest('.data-acc').classList.toggle('open')">
+      <h2>What ComplyScope accesses</h2>
+      <span class="data-acc-icon">+</span>
+    </div>
+    <div class="data-acc-body">
+      <div class="data-acc-inner">
+        <ul class="data-list">
+          <li><span class="data-icon icon-check">&#10003;</span> We read the documents you upload or share from your connected folder</li>
+          <li><span class="data-icon icon-check">&#10003;</span> We extract compliance-relevant content to generate your gap report or register</li>
+          <li><span class="data-icon icon-check">&#10003;</span> We store document metadata &mdash; file name, upload date, classification, and findings</li>
+          <li><span class="data-icon icon-check">&#10003;</span> We do not store the full content of your documents beyond what is needed to generate your report</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <!-- Section 2 — What we never do -->
-  <div class="data-section data-never">
-    <h2>What we never do</h2>
-    <ul class="data-list">
-      <li><span class="data-icon icon-lock">&#128274;</span> We never use your documents to train AI models</li>
-      <li><span class="data-icon icon-lock">&#128274;</span> We never share your documents or findings with any third party</li>
-      <li><span class="data-icon icon-lock">&#128274;</span> We never access folders, files, or systems outside your designated ComplyScope folder</li>
-      <li><span class="data-icon icon-lock">&#128274;</span> We never retain documents after your account is closed &mdash; all data deleted on request</li>
-    </ul>
+  <!-- Section 2 — What we never do (open by default) -->
+  <div class="data-acc data-never open">
+    <div class="data-acc-head" onclick="this.closest('.data-acc').classList.toggle('open')">
+      <h2>What we never do</h2>
+      <span class="data-acc-icon">+</span>
+    </div>
+    <div class="data-acc-body">
+      <div class="data-acc-inner">
+        <ul class="data-list">
+          <li><span class="data-icon icon-lock">&#128274;</span> We never use your documents to train AI models</li>
+          <li><span class="data-icon icon-lock">&#128274;</span> We never share your documents or findings with any third party</li>
+          <li><span class="data-icon icon-lock">&#128274;</span> We never access folders, files, or systems outside your designated ComplyScope folder</li>
+          <li><span class="data-icon icon-lock">&#128274;</span> We never retain documents after your account is closed &mdash; all data deleted on request</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <!-- Section 3 — Where data lives -->
-  <div class="data-section">
-    <h2>Where your data is stored</h2>
-    <ul class="data-list">
-      <li><span class="data-icon icon-check">&#10003;</span> All data is stored on EU-based servers</li>
-      <li><span class="data-icon icon-check">&#10003;</span> ComplyScope uses Supabase for data storage &mdash; EU region, SOC 2 compliant</li>
-      <li><span class="data-icon icon-check">&#10003;</span> Document files are stored in encrypted storage buckets &mdash; accessible only to your account</li>
-      <li><span class="data-icon icon-check">&#10003;</span> All data in transit is encrypted via HTTPS/TLS</li>
-    </ul>
+  <!-- Section 3 — Where data lives (closed by default) -->
+  <div class="data-acc">
+    <div class="data-acc-head" onclick="this.closest('.data-acc').classList.toggle('open')">
+      <h2>Where your data is stored</h2>
+      <span class="data-acc-icon">+</span>
+    </div>
+    <div class="data-acc-body">
+      <div class="data-acc-inner">
+        <ul class="data-list">
+          <li><span class="data-icon icon-check">&#10003;</span> All data is stored on EU-based servers</li>
+          <li><span class="data-icon icon-check">&#10003;</span> ComplyScope uses Supabase for data storage &mdash; EU region, SOC 2 compliant</li>
+          <li><span class="data-icon icon-check">&#10003;</span> Document files are stored in encrypted storage buckets &mdash; accessible only to your account</li>
+          <li><span class="data-icon icon-check">&#10003;</span> All data in transit is encrypted via HTTPS/TLS</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <!-- Section 4 — Your rights -->
-  <div class="data-section">
-    <h2>Your rights</h2>
-    <ul class="data-list">
-      <li><span class="data-icon icon-check">&#10003;</span> You can request deletion of all your data at any time by emailing <a href="mailto:hello@complyscope.ie" style="color:var(--gold); text-decoration:none;">hello@complyscope.ie</a></li>
-      <li><span class="data-icon icon-check">&#10003;</span> You can disconnect SharePoint or OneDrive access at any time from your Microsoft account settings</li>
-      <li><span class="data-icon icon-check">&#10003;</span> ComplyScope complies with GDPR as a data processor &mdash; your organisation remains the data controller</li>
-      <li><span class="data-icon icon-check">&#10003;</span> A full Data Processing Agreement is available on request &mdash; email <a href="mailto:hello@complyscope.ie" style="color:var(--gold); text-decoration:none;">hello@complyscope.ie</a></li>
-    </ul>
+  <!-- Section 4 — Your rights (closed by default) -->
+  <div class="data-acc">
+    <div class="data-acc-head" onclick="this.closest('.data-acc').classList.toggle('open')">
+      <h2>Your rights</h2>
+      <span class="data-acc-icon">+</span>
+    </div>
+    <div class="data-acc-body">
+      <div class="data-acc-inner">
+        <ul class="data-list">
+          <li><span class="data-icon icon-check">&#10003;</span> You can request deletion of all your data at any time by emailing <a href="mailto:hello@complyscope.ie" style="color:var(--gold); text-decoration:none;">hello@complyscope.ie</a></li>
+          <li><span class="data-icon icon-check">&#10003;</span> You can disconnect SharePoint or OneDrive access at any time from your Microsoft account settings</li>
+          <li><span class="data-icon icon-check">&#10003;</span> ComplyScope complies with GDPR as a data processor &mdash; your organisation remains the data controller</li>
+          <li><span class="data-icon icon-check">&#10003;</span> A full Data Processing Agreement is available on request &mdash; email <a href="mailto:hello@complyscope.ie" style="color:var(--gold); text-decoration:none;">hello@complyscope.ie</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <!-- Section 5 — Questions CTA -->

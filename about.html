@@ -48,24 +48,11 @@
       justify-content: space-between;
       height: 64px;
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 2000;
     }
 
-    .logo {
-      color: var(--white);
-      font-size: 20px;
-      font-weight: 700;
-      font-family: Georgia, serif;
-      letter-spacing: 0.03em;
-      text-decoration: none;
-    }
-
-    .logo span { color: var(--gold-lt); }
-
-    ul.nav-links, #nav-links {
+    #nav-links {
       list-style: none;
       display: flex;
       align-items: center;
@@ -175,26 +162,12 @@
     }
     footer p { font-size: 13px; }
 
-    /* ── ABOUT CONTENT WRAPPER ── */
+    /* ── CONTENT WRAPPER ── */
     .about-content {
       max-width: 1100px;
       margin: 0 auto;
       padding: 64px 6vw;
     }
-
-    /* ── ABOUT INTRO BLOCK ── */
-    .about-intro {
-      margin-bottom: 56px;
-      padding-bottom: 56px;
-      border-bottom: 1px solid var(--border);
-    }
-    .about-intro p {
-      font-size: 16px;
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 16px;
-    }
-    .about-intro p:last-child { margin-bottom: 0; }
 
     /* ── SECTION TYPOGRAPHY ── */
     .about-content h2 {
@@ -221,33 +194,14 @@
       margin-bottom: 18px;
       line-height: 1.78;
     }
+    .about-content p:last-child { margin-bottom: 0; }
 
-    /* ── WHO BUILT THIS SUBSECTIONS ── */
-    .about-subsection {
-      margin-bottom: 40px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid var(--border);
-    }
-    .about-subsection:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .about-subsection h3 {
-      font-family: Georgia, serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 14px;
-    }
-    .about-subsection p {
-      font-size: 16px;
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 12px;
-    }
-    .about-subsection p:last-child { margin-bottom: 0; }
+    /* ── PULLQUOTE ── */
     .about-pullquote {
       background: var(--navy);
       border-radius: 4px;
       padding: 28px 32px;
-      margin-top: 20px;
+      margin-top: 24px;
     }
     .about-pullquote p {
       font-family: Georgia, serif;
@@ -285,7 +239,7 @@
       border-top: 1px solid var(--border);
     }
     .compare-row:nth-child(even) { background: var(--white); }
-    .compare-row:nth-child(odd) { background: #faf8f5; }
+    .compare-row:nth-child(odd)  { background: #faf8f5; }
     .compare-row div {
       padding: 11px 16px;
       font-size: 14px;
@@ -294,8 +248,8 @@
       align-items: center;
     }
     .compare-row div:first-child { color: var(--navy); font-weight: 500; }
-    .tick  { color: #2e7d32; font-size: 15px; font-weight: 700; }
-    .cross { color: #c0392b; font-size: 15px; font-weight: 700; }
+    .tick    { color: #2e7d32; font-size: 15px; font-weight: 700; }
+    .cross   { color: #c0392b; font-size: 15px; font-weight: 700; }
     .partial { color: #c47a20; font-size: 13px; }
 
     /* ── LEGISLATION GRID ── */
@@ -375,13 +329,13 @@
       font-size: 17px;
       font-weight: 600;
       color: var(--navy);
-      margin-bottom: 0;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 16px;
       line-height: 1.35;
+      margin-bottom: 0;
     }
     .faq-q::after { content: '+'; font-size: 22px; color: var(--gold); flex-shrink: 0; font-family: sans-serif; font-weight: 300; line-height: 1.1; }
     .faq-q.open::after { content: '\00d7'; }
@@ -396,23 +350,13 @@
       margin: 52px 0 0;
       text-align: center;
     }
-    .cta-block h3 {
-      font-family: Georgia, serif;
-      font-size: 26px;
-      font-weight: 700;
-      color: #fff;
-      margin: 0 0 12px;
-    }
-    .cta-block p {
-      font-size: 16px;
-      color: rgba(255,255,255,0.58);
-      margin: 0 0 26px;
-    }
+    .cta-block h3 { font-family: Georgia, serif; font-size: 26px; font-weight: 700; color: #fff; margin: 0 0 12px; }
+    .cta-block p  { font-size: 16px; color: rgba(255,255,255,0.58); margin: 0 0 26px; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 0 20px; position: fixed; }
-      nav ul, #nav-links { display: none; }
+      #nav-links { display: none; }
       #nav-burger { display: flex !important; }
       .disclaimer { padding: 20px 24px; }
       footer { padding: 24px; flex-direction: column; text-align: center; }
@@ -421,7 +365,7 @@
     @media (max-width: 600px) {
       .compare { overflow-x: auto; }
       .compare-head, .compare-row { min-width: 480px; }
-      .leg-grid { grid-template-columns: 1fr; }
+      .leg-grid  { grid-template-columns: 1fr; }
       .leg-extra { grid-template-columns: 1fr; }
     }
   </style>
@@ -465,36 +409,8 @@
 <!-- MAIN CONTENT -->
 <div class="about-content">
 
-  <!-- WHO BUILT THIS -->
-  <h2 class="no-rule">Built from 15+ years of real HSEQ document review</h2>
-  <p class="lead">ComplyScope was built from hands-on HSEQ experience across construction, infrastructure and energy projects in Ireland and internationally.</p>
-
-  <div class="about-intro">
-    <p>It reflects thousands of reviewed RAMS, safety statements, plant records, certificates and contractor submissions &mdash; where gaps repeatedly appear, delays start, and risk accumulates.</p>
-    <p>ComplyScope uses AI to read and parse compliance documents at speed. Every finding is checked against a manually maintained library of current Irish construction legislation &mdash; built and kept current by the ComplyScope team. The AI handles the reading. The legislation library handles the standard. Your duty holder makes every final call.</p>
-  </div>
-
-  <div class="about-subsection">
-    <h3>Why it was built</h3>
-    <p>Construction document review is often manual, rushed and inconsistent. Under programme pressure, people scan paperwork when they should be reviewing it thoroughly.</p>
-    <p>ComplyScope was built to improve that first pass. Not to replace professional judgement &mdash; to support it with structured, consistent outputs worth reviewing.</p>
-  </div>
-
-  <div class="about-subsection">
-    <h3>Built specifically for Irish construction</h3>
-    <p>Calibrated against Irish legislation. Designed around Irish construction documentation. Structured around the duty-holder framework projects actually operate under.</p>
-  </div>
-
-  <div class="about-subsection">
-    <h3>How it works</h3>
-    <p>Documents enter through your existing workflow &mdash; SharePoint, OneDrive, or direct upload. The system checks them automatically against defined standards and returns structured outputs for review. The duty holder makes every decision.</p>
-    <div class="about-pullquote">
-      <p>AI makes the process fast and consistent. Domain expertise makes it relevant. Human review keeps accountability where it belongs.</p>
-    </div>
-  </div>
-
-  <!-- WHY GENERIC AI ISN'T ENOUGH -->
-  <h2>Why generic AI isn&rsquo;t enough</h2>
+  <!-- 1. WHY GENERIC AI ISN'T ENOUGH -->
+  <h2 class="no-rule">Why generic AI isn&rsquo;t enough</h2>
   <p class="lead">Any AI tool can read a document. But reading it is not the same as knowing what it needs to contain. ComplyScope is calibrated specifically against current Irish construction legislation &mdash; built by practitioners with deep site-level HSEQ expertise.</p>
   <div class="compare">
     <div class="compare-head">
@@ -511,7 +427,7 @@
     <div class="compare-row"><div>Built so the HSA can&rsquo;t question how a document was reviewed</div><div><span class="tick">&#10003;</span></div><div><span class="cross">&#10007;</span></div></div>
   </div>
 
-  <!-- LEGISLATIVE FRAMEWORK -->
+  <!-- 2. LEGISLATIVE FRAMEWORK -->
   <h2>Legislative framework</h2>
   <p>ComplyScope checks every document against current Irish construction legislation. The regulatory baseline cannot be switched off or overridden.</p>
   <div class="leg-grid">
@@ -526,7 +442,16 @@
   </div>
   <button class="leg-toggle" id="leg-toggle" onclick="var e=document.getElementById('leg-extra'),t=document.getElementById('leg-toggle');e.classList.toggle('open');t.textContent=e.classList.contains('open')?'Show less ↑':'See 2 more compliance areas →';">See 2 more compliance areas &rarr;</button>
 
-  <!-- INVESTMENT -->
+  <!-- 3. WHY COMPLYSCOPE EXISTS -->
+  <h2>Why ComplyScope exists</h2>
+  <p>ComplyScope was built from 15 years of hands-on HSEQ practice across Irish construction, infrastructure, and energy projects. The knowledge embedded in the system comes from reviewing thousands of RAMS, safety statements, plant records, and contractor submissions &mdash; studying where gaps appear, why delays start, and where liability accumulates.</p>
+  <p>Construction document review is manual, rushed, and inconsistent. Under programme pressure, people scan paperwork when they should be reading it thoroughly. ComplyScope handles the first pass &mdash; not to replace professional judgement, but to give the duty holder structured, consistent output that is actually worth reviewing.</p>
+  <p>The system is calibrated against Irish construction legislation &mdash; not adapted from a generic tool. It was designed around the duty-holder framework Irish projects actually operate under. Documents enter through SharePoint, OneDrive, or direct upload. Gap reports come back. Every decision stays with the duty holder.</p>
+  <div class="about-pullquote">
+    <p>AI makes the process fast and consistent. Domain expertise makes it relevant. Human review keeps accountability where it belongs.</p>
+  </div>
+
+  <!-- 4. INVESTMENT -->
   <h2>Investment</h2>
   <p class="lead">Engagements are priced against the cost of the risk being managed &mdash; not against what software typically costs.</p>
   <div class="investment-box">
@@ -539,41 +464,41 @@
     <p>Pricing is designed to work for SME contractors &mdash; the businesses most likely to lose contracts due to disorganised documentation.</p>
     <p style="margin-bottom:0; font-size:14px; color:var(--gold); font-weight:600;">One recovered contract pays for the system.</p>
   </div>
-  <p style="font-size:14px; color:var(--muted);"><a href="https://app.complyscope.ie/signup" style="color:var(--gold); text-decoration:none; font-weight:600;">Start the free trial</a> to see the output first, or <a href="mailto:hello@complyscope.ie" style="color:var(--gold); text-decoration:none; font-weight:600;">contact us</a> to discuss your situation. Full pricing is on the <a href="pricing.html" style="color:var(--gold); text-decoration:none; font-weight:600;">pricing page</a>.</p>
+  <p style="font-size:14px; color:var(--muted); margin-top:16px;"><a href="https://app.complyscope.ie/signup" style="color:var(--gold); text-decoration:none; font-weight:600;">Start the free trial</a> to see the output first, or <a href="mailto:hello@complyscope.ie" style="color:var(--gold); text-decoration:none; font-weight:600;">contact us</a> to discuss your situation. Full pricing is on the <a href="pricing.html" style="color:var(--gold); text-decoration:none; font-weight:600;">pricing page</a>.</p>
 
-  <!-- FAQ -->
+  <!-- 5. FAQ -->
   <h2>Questions buyers ask first</h2>
 
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">Is this an AI system?</div>
-    <div class="faq-a">Yes. ComplyScope uses AI language models inside a controlled review workflow. The system checks documents against defined Irish regulatory standards and produces structured outputs for human review. It does not approve documents, make legal decisions, or replace the duty holder. For full details on how documents are handled, stored, and processed, see the <a href="data.html" style="color:var(--gold); text-decoration:none; font-weight:600;">Data &amp; Privacy page</a>.</div>
+    <div class="faq-a">Yes. ComplyScope uses AI to read and parse compliance documents. Every finding is checked against a manually maintained library of current Irish construction legislation. The AI handles the reading &mdash; the legislation library handles the standard.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">Does ComplyScope approve or sign off documentation?</div>
-    <div class="faq-a">No. The system detects gaps and produces a report. Approval and sign-off remain entirely with the duty holder. Legal responsibility sits with a human, not with a system.</div>
+    <div class="faq-a">No. ComplyScope identifies gaps and flags them for review. Every approval and sign-off decision remains with your appointed duty holder. The system never passes or fails a document.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">How is this different from an audit?</div>
-    <div class="faq-a">An audit issues a verdict. ComplyScope detects gaps and reports them. The duty holder reviews the findings and decides what the verdict is.</div>
+    <div class="faq-a">An audit is a formal inspection by a competent person with legal standing. ComplyScope is a document review tool that identifies gaps before a document is approved. It supports your audit trail &mdash; it does not replace it.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">I already have a Safety Advisor. Why do I need this?</div>
-    <div class="faq-a">Your Safety Advisor needs to be on site &mdash; conducting inspections, managing real-time risks, talking to operatives. Every hour they spend at a desk reviewing incoming subcontractor paperwork is an hour they are not on site. ComplyScope handles the first-pass document review automatically. Your Safety Advisor reviews findings, not raw paperwork.</div>
+    <div class="faq-a">ComplyScope handles the first-pass document review &mdash; the most time-consuming part of a Safety Advisor&rsquo;s desk work. It frees them to be on site rather than at a desk reading paperwork. It does not replace professional judgement.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">How does it handle AI errors or hallucinations?</div>
-    <div class="faq-a">Every output is framed as a gap report, not a verdict. Every report is reviewed by a duty holder before any action is taken. The system is built to produce consistent outputs on the same document every time.</div>
+    <div class="faq-a">Every finding is cited against a specific regulation. If a finding cannot be cited, it is not included in the report. Your duty holder reviews every output before any action is taken &mdash; the system is designed so a missed gap is caught at review, not acted on unchecked.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">How does the system connect to my document workflow?</div>
-    <div class="faq-a">Upload documents directly through the ComplyScope dashboard &mdash; Word or PDF files, any format. For automatic processing, ComplyScope connects to your existing SharePoint or OneDrive environment via Microsoft&rsquo;s standard API. Documents land in a designated folder, the system detects them automatically, and gap reports are returned to your output folder.</div>
+    <div class="faq-a">Documents can be uploaded directly through the dashboard, or the system can connect to a designated SharePoint or OneDrive folder. New documents dropped into the folder are processed automatically. No change to your existing workflow is required.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">How do I start?</div>
-    <div class="faq-a">Create a free account and upload one document. The system processes it and returns a gap report. You see exactly what it produces before any commercial conversation begins. No card required.</div>
+    <div class="faq-a">Create a free account at app.complyscope.ie. Upload one document &mdash; no card required. You will receive a full gap analysis report before any commercial conversation.</div>
   </div>
 
-  <!-- CTA BLOCK -->
+  <!-- 6. CTA -->
   <div class="cta-block">
     <h3>See what it finds on your documents.</h3>
     <p>First review is free. Upload one document and see the gap report before any commercial conversation.</p>
