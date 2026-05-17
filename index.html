@@ -512,10 +512,14 @@
     #why-page .faq-q.open::after { content: '×'; }
     #why-page .faq-a { font-size: 15px; color: var(--muted); line-height: 1.75; display: none; margin-top: 12px; }
     #why-page .faq-a.open { display: block; }
-    #why-page .leg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+    #why-page .leg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0 0; }
     #why-page .leg-item { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 16px 18px; }
     #why-page .leg-item strong { display: block; font-family: Georgia, serif; font-size: 14px; color: var(--navy); margin-bottom: 5px; }
     #why-page .leg-item span { font-size: 13px; color: var(--muted); line-height: 1.5; display: block; }
+    #why-page .leg-extra { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    #why-page .leg-extra.open { max-height: 200px; }
+    #why-page .leg-toggle { background: none; border: none; cursor: pointer; font-size: 14px; color: var(--gold); font-weight: 600; padding: 12px 0 0; display: block; font-family: inherit; }
+    #why-page .leg-toggle:hover { color: var(--navy); }
     #why-page .cta-block { background: var(--navy); border-radius: 4px; padding: 44px 40px; margin: 52px 0 0; text-align: center; }
     #why-page .cta-block h3 { font-family: Georgia, serif; font-size: 26px; font-weight: 700; color: #fff; margin: 0 0 12px; }
     #why-page .cta-block p { font-size: 16px; color: rgba(255,255,255,0.58); margin: 0 0 26px; }
@@ -523,6 +527,7 @@
       #why-page .compare { overflow-x: auto; }
       #why-page .compare-head, #why-page .compare-row { min-width: 480px; }
       #why-page .leg-grid { grid-template-columns: 1fr; }
+      #why-page .leg-extra { grid-template-columns: 1fr; }
       #why-page .content { padding: 40px 20px; }
     }
 
@@ -917,6 +922,7 @@
   <div class="about-body" style="max-width:760px; margin:0 auto; padding:72px 48px;">
     <div style="margin-bottom:56px; padding-bottom:56px; border-bottom:1px solid var(--border);">
       <p style="font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:16px;">It reflects thousands of reviewed RAMS, safety statements, plant records, certificates and contractor submissions &mdash; where gaps repeatedly appear, delays start, and risk accumulates.</p>
+      <p style="font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:16px;">ComplyScope uses AI to read and parse compliance documents at speed. Every finding is checked against a manually maintained library of current Irish construction legislation &mdash; built and kept current by the ComplyScope team. The AI handles the reading. The legislation library handles the standard. Your duty holder makes every final call.</p>
     </div>
     <div style="margin-bottom:56px; padding-bottom:56px; border-bottom:1px solid var(--border);">
       <h2 style="font-family:Georgia,serif; font-size:22px; font-weight:700; color:var(--navy); margin-bottom:16px;">Why it was built</h2>
@@ -938,6 +944,7 @@
       <h2 style="font-family:Georgia,serif; font-size:22px; font-weight:700; color:var(--navy); margin-bottom:16px;">Get in touch</h2>
       <p style="font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:16px;">Send one document &mdash; a RAMS, a safety statement, or a certification folder &mdash; and we will return a structured output before any commercial conversation begins.</p>
       <p style="font-size:16px; color:var(--muted); line-height:1.75;">Email: <a href="mailto:hello@complyscope.ie" style="color:var(--gold); font-weight:600; text-decoration:none;">hello@complyscope.ie</a></p>
+      <p style="margin-top:24px; font-size:13px;"><a href="data.html" style="color:var(--muted); text-decoration:none; border-bottom:1px solid var(--border);">Data &amp; Privacy &rarr;</a></p>
     </div>
   </div>
   <div class="about-cta-footer" style="background:var(--white); border-top:1px solid var(--border); padding:48px; text-align:center;">
@@ -981,8 +988,12 @@
       <div class="leg-item"><strong>Construction Regulations 2013 (S.I. 291/2013)</strong><span>RAMS requirements, PSCS duties, Fifth Schedule competency, site-specific obligations.</span></div>
       <div class="leg-item"><strong>General Application Regulations (S.I. 299/2007)</strong><span>Chemical agents, hazardous substances, PPE, manual handling, work at height.</span></div>
       <div class="leg-item"><strong>Current HSA RAMS Guidance</strong><span>Structure, content, site specificity and sign-off requirements for RAMS documents.</span></div>
+    </div>
+    <div class="leg-extra" id="leg-extra">
       <div class="leg-item"><strong>Safe Pass (SOLAS)</strong><span>Validity, expiry, renewal requirements for all operatives on Irish construction sites.</span></div>
       <div class="leg-item"><strong>CSCS &mdash; Construction Skills Certification Scheme</strong><span>Card requirements by task type, Fifth Schedule trades, expiry tracking.</span></div>
+    </div>
+    <button class="leg-toggle" id="leg-toggle" onclick="var e=document.getElementById('leg-extra'),t=document.getElementById('leg-toggle');e.classList.toggle('open');t.textContent=e.classList.contains('open')?'Show less ↑':'See 2 more compliance areas →';">See 2 more compliance areas &rarr;</button>
     </div>
 
     <h2>Investment</h2>
