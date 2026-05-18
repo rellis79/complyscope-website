@@ -531,6 +531,73 @@
       #why-page .content { padding: 40px 20px; }
     }
 
+
+    /* ── HERO SECONDARY BUTTON ── */
+    .btn-outline-hero {
+      background: transparent;
+      color: var(--cream);
+      padding: 13px 28px;
+      border: 1.5px solid rgba(244,240,232,0.45);
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .btn-outline-hero:hover { border-color: var(--gold-lt); color: var(--gold-lt); }
+
+    .hero-trust {
+      margin-top: 14px;
+      font-size: 12px;
+      color: rgba(244,240,232,0.45);
+      letter-spacing: 0.01em;
+      line-height: 1.5;
+    }
+
+    /* ── METRICS BAR ── */
+    .metrics-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 48px 6vw; }
+    .metrics-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
+    }
+    .metric-card { padding: 36px 40px; border-right: 1px solid var(--border); background: var(--white); }
+    .metric-card:last-child { border-right: none; }
+    .metric-value {
+      display: block; font-family: Georgia, serif;
+      font-size: clamp(28px, 2.8vw, 42px); font-weight: 700;
+      color: var(--navy); line-height: 1.1; margin-bottom: 10px;
+    }
+    .metric-label { display: block; font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ── HOW IT WORKS — 4-STEP FLOW ── */
+    .how-flow { display: flex; align-items: stretch; margin-top: 28px; }
+    .how-step-v2 {
+      flex: 1; background: var(--white); padding: 28px 22px;
+      border: 1px solid var(--border); position: relative; min-width: 0;
+    }
+    .how-step-v2 + .how-step-v2 { border-left: none; }
+    .how-step-v2:not(:last-child)::after {
+      content: '\203A';
+      position: absolute; right: -11px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px; color: var(--gold); z-index: 3;
+      background: var(--white); width: 22px; text-align: center; line-height: 1;
+    }
+
+    @media (max-width: 768px) {
+      .metrics-grid { grid-template-columns: 1fr; }
+      .metric-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .metric-card:last-child { border-bottom: none; }
+      .how-flow { flex-direction: column; }
+      .how-step-v2 + .how-step-v2 { border-left: 1px solid var(--border); border-top: none; }
+      .how-step-v2:not(:last-child)::after { display: none; }
+      .hero-trust { font-size: 11px; }
+    }
+
   </style>
 <script type="application/ld+json">
 {
@@ -588,9 +655,10 @@
       <h1>An AI-powered compliance system built for Irish construction.</h1>
       <p>ComplyScope checks safety documents against current Irish construction legislation. Every gap is severity-rated Critical, Major, or Minor, and cited against the exact regulation it violates &mdash; returned in seconds, ready for duty-holder review.</p>
       <div class="hero-actions">
-        <a href="https://app.complyscope.ie/signup" class="btn-primary">Start free trial &mdash; no card required</a>
-        <a href="#samples" class="btn-ghost">See what it finds &darr;</a>
+        <a href="https://app.complyscope.ie/signup" class="btn-primary">Start free trial &rarr;</a>
+        <a href="contact.html" class="btn-outline-hero">Book a call &rarr;</a>
       </div>
+      <p class="hero-trust">No hardware. No setup fee. Compliance dashboard live in under 15 minutes.</p>
       <div style="margin-top:44px; padding-top:36px; border-top:1px solid rgba(244,240,232,0.2); display:flex; gap:36px; flex-wrap:wrap;">
         <div>
           <span style="display:block; font-family:Georgia,serif; font-size:28px; font-weight:700; color:var(--gold); line-height:1;">6</span>
@@ -659,6 +727,24 @@
           <p style="font-size:10px; color:#b0b8c4; margin-top:12px; text-align:center; letter-spacing:0.04em; padding-top:10px; border-top:1px solid #e8e4dc;">+ 9 further gaps in full report &nbsp;&middot;&nbsp; Duty holder review required</p>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- METRICS BAR -->
+<div class="metrics-bar">
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <span class="metric-value">5 Registers</span>
+      <span class="metric-label">Personnel, plant, insurance, RAMS and chemical agents &mdash; all in one dashboard</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-value">&lt;&nbsp;15 mins</span>
+      <span class="metric-label">From first upload to live compliance dashboard</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-value">100% Irish</span>
+      <span class="metric-label">Built specifically for Irish construction legislation and HSA standards</span>
     </div>
   </div>
 </div>
@@ -773,35 +859,41 @@
 
 <!-- HOW IT WORKS -->
 <section class="section" id="how" style="background:var(--cream);">
-  <div class="section-inner" style="max-width:900px;">
+  <div class="section-inner" style="max-width:1100px;">
     <p class="section-label">How it works</p>
     <h2 class="section-title">No manual sorting. No spreadsheets. No chasing paperwork.</h2>
-    <div class="how-steps" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px; margin-top:28px;">
-      <div class="how-step" style="background:var(--white); padding:28px 24px; border:1px solid var(--border);">
-        <div style="font-family:Georgia,serif; font-size:40px; font-style:italic; color:var(--gold); line-height:1; margin-bottom:16px;">1</div>
-        <p style="font-family:Georgia,serif; font-size:17px; font-weight:600; color:var(--navy); margin:0 0 14px;">Connect your document folder once</p>
+    <div class="how-flow">
+      <div class="how-step-v2">
+        <div style="font-family:Georgia,serif; font-size:36px; font-style:italic; color:var(--gold); line-height:1; margin-bottom:14px;">1</div>
+        <p style="font-family:Georgia,serif; font-size:16px; font-weight:700; color:var(--navy); margin:0 0 14px;">Connect once</p>
         <ul style="list-style:none; padding:0; margin:0;">
-          <li style="font-size:14px; color:var(--muted); padding:5px 0 5px 16px; position:relative; line-height:1.45; border-bottom:1px solid var(--border);"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Link SharePoint, OneDrive, or upload to ComplyScope directly</li>
-          <li style="font-size:14px; color:var(--muted); padding:5px 0 5px 16px; position:relative; line-height:1.45; border-bottom:1px solid var(--border);"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Folder monitored automatically &mdash; no login needed</li>
-          <li style="font-size:14px; color:var(--muted); padding:5px 0 0 16px; position:relative; line-height:1.45;"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>New documents processed the moment they arrive</li>
+          <li style="font-size:13px; color:var(--muted); padding:5px 0 5px 14px; position:relative; line-height:1.5; border-bottom:1px solid var(--border);"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Link SharePoint, OneDrive, or upload to ComplyScope directly</li>
+          <li style="font-size:13px; color:var(--muted); padding:5px 0 0 14px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Folder monitored automatically &mdash; no login needed</li>
         </ul>
       </div>
-      <div class="how-step" style="background:var(--white); padding:28px 24px; border:1px solid var(--border); border-left:none;">
-        <div style="font-family:Georgia,serif; font-size:40px; font-style:italic; color:var(--gold); line-height:1; margin-bottom:16px;">2</div>
-        <p style="font-family:Georgia,serif; font-size:17px; font-weight:600; color:var(--navy); margin:0 0 14px;">Every document is read, classified, and processed automatically</p>
+      <div class="how-step-v2">
+        <div style="font-family:Georgia,serif; font-size:36px; font-style:italic; color:var(--gold); line-height:1; margin-bottom:14px;">2</div>
+        <p style="font-family:Georgia,serif; font-size:16px; font-weight:700; color:var(--navy); margin:0 0 14px;">Documents processed automatically</p>
         <ul style="list-style:none; padding:0; margin:0;">
-          <li style="font-size:14px; color:var(--muted); padding:5px 0 5px 16px; position:relative; line-height:1.45; border-bottom:1px solid var(--border);"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Document type identified automatically &mdash; no labelling needed</li>
-          <li style="font-size:14px; color:var(--muted); padding:5px 0 5px 16px; position:relative; line-height:1.45; border-bottom:1px solid var(--border);"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Gap reports generated for RAMS and safety documents</li>
-          <li style="font-size:14px; color:var(--muted); padding:5px 0 0 16px; position:relative; line-height:1.45;"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Expiry registers built and exported as Excel files automatically</li>
+          <li style="font-size:13px; color:var(--muted); padding:5px 0 5px 14px; position:relative; line-height:1.5; border-bottom:1px solid var(--border);"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Document type identified without any labelling</li>
+          <li style="font-size:13px; color:var(--muted); padding:5px 0 0 14px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Gap reports generated for RAMS and safety documents</li>
         </ul>
       </div>
-      <div class="how-step" style="background:var(--white); padding:28px 24px; border:1px solid var(--border); border-left:none;">
-        <div style="font-family:Georgia,serif; font-size:40px; font-style:italic; color:var(--gold); line-height:1; margin-bottom:16px;">3</div>
-        <p style="font-family:Georgia,serif; font-size:17px; font-weight:600; color:var(--navy); margin:0 0 14px;">You see findings. Not raw documents.</p>
+      <div class="how-step-v2">
+        <div style="font-family:Georgia,serif; font-size:36px; font-style:italic; color:var(--gold); line-height:1; margin-bottom:14px;">3</div>
+        <p style="font-family:Georgia,serif; font-size:16px; font-weight:700; color:var(--navy); margin:0 0 14px;">Registers built and updated</p>
         <ul style="list-style:none; padding:0; margin:0;">
-          <li style="font-size:14px; color:var(--muted); padding:5px 0 5px 16px; position:relative; line-height:1.45; border-bottom:1px solid var(--border);"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Every gap rated Critical, Major, or Minor</li>
-          <li style="font-size:14px; color:var(--muted); padding:5px 0 5px 16px; position:relative; line-height:1.45; border-bottom:1px solid var(--border);"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Colour-coded registers &mdash; green, amber, red &mdash; at a glance</li>
-          <li style="font-size:14px; color:var(--muted); padding:5px 0 0 16px; position:relative; line-height:1.45;"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Duty holder reviews findings and makes every decision</li>
+          <li style="font-size:13px; color:var(--muted); padding:5px 0 5px 14px; position:relative; line-height:1.5; border-bottom:1px solid var(--border);"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Expiry registers built and exported as Excel files automatically</li>
+          <li style="font-size:13px; color:var(--muted); padding:5px 0 0 14px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Personnel, plant, insurance and chemical agents</li>
+        </ul>
+      </div>
+      <div class="how-step-v2">
+        <div style="font-family:Georgia,serif; font-size:36px; font-style:italic; color:var(--gold); line-height:1; margin-bottom:14px;">4</div>
+        <p style="font-family:Georgia,serif; font-size:16px; font-weight:700; color:var(--navy); margin:0 0 14px;">You review findings</p>
+        <ul style="list-style:none; padding:0; margin:0;">
+          <li style="font-size:13px; color:var(--muted); padding:5px 0 5px 14px; position:relative; line-height:1.5; border-bottom:1px solid var(--border);"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Every gap rated Critical, Major, or Minor</li>
+          <li style="font-size:13px; color:var(--muted); padding:5px 0 5px 14px; position:relative; line-height:1.5; border-bottom:1px solid var(--border);"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Colour-coded registers &mdash; green, amber, red &mdash; at a glance</li>
+          <li style="font-size:13px; color:var(--muted); padding:5px 0 0 14px; position:relative; line-height:1.5;"><span style="position:absolute; left:0; color:var(--gold-lt); font-weight:700;">&#8250;</span>Duty holder makes every decision</li>
         </ul>
       </div>
     </div>
