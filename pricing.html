@@ -250,7 +250,7 @@
     .roi-section { background:var(--cream); border:2px solid var(--navy); border-radius:4px; padding:40px; margin-bottom:0; }
     .roi-section > h3 { font-family:Georgia,serif; font-size:20px; font-weight:700; color:var(--navy); margin-bottom:6px; }
     .roi-section > p { font-size:15px; color:var(--muted); margin-bottom:32px; }
-    .roi-inputs { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom:32px; }
+    .roi-inputs { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:32px; }
     .roi-ig label { display:block; font-size:11px; font-weight:700; color:var(--navy); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:6px; }
     .roi-ig input { width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:3px; font-size:18px; font-family:inherit; color:var(--navy); background:white; outline:none; -moz-appearance:textfield; }
     .roi-ig input::-webkit-outer-spin-button, .roi-ig input::-webkit-inner-spin-button { -webkit-appearance:none; }
@@ -275,9 +275,15 @@
     .roi-out.roi-savings .roi-val { color:#2e7d32; }
     .roi-2col { grid-template-columns:1fr 1fr !important; }
     .roi-position-line { border-left:4px solid var(--gold-lt); background:var(--white); padding:14px 18px; margin:28px 0 16px; font-size:14px; color:var(--navy); line-height:1.6; border-radius:0 3px 3px 0; }
-    .roi-state-wrap { background:#fdf6f0; border-radius:3px; padding:16px; }
-    .roi-cs-wrap    { background:#f0f7f4; border-radius:3px; padding:16px; }
-    .roi-fi-wrap    { background:#ffffff; border:1px solid var(--gold-lt); border-radius:3px; padding:16px; }
+    .roi-state-wrap { background:#fde8e0; border-radius:3px; padding:16px; }
+    .roi-state-wrap .roi-out { background:#fde8e0; border-color:#e0c0b4; }
+    .roi-cs-wrap    { background:#e0f0e8; border-radius:3px; padding:16px; }
+    .roi-cs-wrap .roi-out   { background:#e0f0e8; border-color:#b8d4c0; }
+    .roi-fi-wrap    { background:#fff8e8; border:1px solid var(--gold-lt); border-radius:3px; padding:16px; }
+    .roi-fi-wrap .roi-out   { background:#fff8e8; border-color:#e8d898; }
+    .roi-label-state { color:#8b2500 !important; }
+    .roi-label-cs    { color:#1a5c3a !important; }
+    .roi-label-fi    { color:#b8841e !important; }
 
     /* ── DISCLAIMER ── */
     .disclaimer {
@@ -472,14 +478,9 @@
           <input type="number" id="roi-rate" value="50" min="1" oninput="calcROI()">
           <small>Use fully loaded cost including on-costs</small>
         </div>
-        <div class="roi-ig">
-          <label>Documents requiring resubmission (%)</label>
-          <input type="number" id="roi-resub" value="30" min="0" max="100" oninput="calcROI()">
-          <small>Industry average 25&ndash;40%</small>
-        </div>
       </div>
 
-      <div class="roi-section-label">Your Current State</div>
+      <div class="roi-section-label roi-label-state">Your Current State</div>
       <div class="roi-state-wrap">
         <div class="roi-outputs roi-2col roi-outputs-mb0">
           <div class="roi-out">
@@ -497,7 +498,7 @@
 
       <div class="roi-section-divider"></div>
 
-      <div class="roi-section-label">With ComplyScope</div>
+      <div class="roi-section-label roi-label-cs">With ComplyScope</div>
       <div class="roi-cs-wrap">
         <div class="roi-outputs roi-outputs-mb0">
           <div class="roi-out">
@@ -519,17 +520,11 @@
 
       <div class="roi-section-divider"></div>
 
-      <div class="roi-section-label">Financial Impact</div>
+      <div class="roi-section-label roi-label-fi">Financial Impact</div>
       <div class="roi-fi-wrap">
-        <div class="roi-outputs roi-2col roi-outputs-mb0">
-          <div class="roi-out roi-savings">
-            <label>Estimated annual savings</label>
-            <div class="roi-val" id="roi-savings">&euro;7,200 &ndash; &euro;14,400</div>
-          </div>
-          <div class="roi-out">
-            <label>Estimated return relative to subscription</label>
-            <div class="roi-val roi-val-sm roi-val-muted" id="roi-multiples">Compliance Register: 1.5&times; &ndash; 3.0&times;<br>Full Suite: 0.8&times; &ndash; 1.6&times;</div>
-          </div>
+        <div class="roi-out roi-savings">
+          <label>Estimated annual savings</label>
+          <div class="roi-val" id="roi-savings">&euro;7,200 &ndash; &euro;14,400</div>
         </div>
       </div>
 
@@ -675,13 +670,8 @@
 
     var savingsLow  = annualCost * 0.3;
     var savingsHigh = annualCost * 0.6;
-    var crAnnual    = 4788;
-    var fsAnnual    = 9000;
 
     document.getElementById('roi-savings').textContent = '€' + fmt0(savingsLow) + ' – €' + fmt0(savingsHigh);
-    document.getElementById('roi-multiples').innerHTML =
-      'Compliance Register: ' + (savingsLow / crAnnual).toFixed(1) + '× – ' + (savingsHigh / crAnnual).toFixed(1) + '×<br>' +
-      'Full Suite: ' + (savingsLow / fsAnnual).toFixed(1) + '× – ' + (savingsHigh / fsAnnual).toFixed(1) + '×';
   }
 </script>
 
