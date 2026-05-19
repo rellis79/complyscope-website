@@ -250,7 +250,7 @@
     .roi-section { background:var(--cream); border:2px solid var(--navy); border-radius:4px; padding:40px; margin-bottom:0; }
     .roi-section > h3 { font-family:Georgia,serif; font-size:20px; font-weight:700; color:var(--navy); margin-bottom:6px; }
     .roi-section > p { font-size:15px; color:var(--muted); margin-bottom:32px; }
-    .roi-inputs { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:32px; }
+    .roi-inputs { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom:32px; }
     .roi-ig label { display:block; font-size:11px; font-weight:700; color:var(--navy); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:6px; }
     .roi-ig input { width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:3px; font-size:18px; font-family:inherit; color:var(--navy); background:white; outline:none; -moz-appearance:textfield; }
     .roi-ig input::-webkit-outer-spin-button, .roi-ig input::-webkit-inner-spin-button { -webkit-appearance:none; }
@@ -275,6 +275,9 @@
     .roi-out.roi-savings .roi-val { color:#2e7d32; }
     .roi-2col { grid-template-columns:1fr 1fr !important; }
     .roi-position-line { border-left:4px solid var(--gold-lt); background:var(--white); padding:14px 18px; margin:28px 0 16px; font-size:14px; color:var(--navy); line-height:1.6; border-radius:0 3px 3px 0; }
+    .roi-state-wrap { background:#fdf6f0; border-radius:3px; padding:16px; }
+    .roi-cs-wrap    { background:#f0f7f4; border-radius:3px; padding:16px; }
+    .roi-fi-wrap    { background:#ffffff; border:1px solid var(--gold-lt); border-radius:3px; padding:16px; }
 
     /* ── DISCLAIMER ── */
     .disclaimer {
@@ -460,10 +463,6 @@
       <p class="roi-intro">Enter your numbers. See your return.</p>
       <div class="roi-inputs">
         <div class="roi-ig">
-          <label>Compliance documents reviewed per month</label>
-          <input type="number" id="roi-docs" value="20" min="1" oninput="calcROI()">
-        </div>
-        <div class="roi-ig">
           <label>Hours spent on compliance review per month</label>
           <input type="number" id="roi-hours" value="40" min="1" oninput="calcROI()">
           <small>Include admin, follow-ups and resubmissions</small>
@@ -481,54 +480,56 @@
       </div>
 
       <div class="roi-section-label">Your Current State</div>
-      <div class="roi-outputs roi-outputs-mb0">
-        <div class="roi-out">
-          <label>Estimated annual time on compliance admin</label>
-          <div class="roi-val" id="roi-annual-time">480 hours/year</div>
-          <div class="roi-sublabel" id="roi-sub-time">(40 hrs/month &times; 12)</div>
-        </div>
-        <div class="roi-out">
-          <label>Estimated annual cost of manual review</label>
-          <div class="roi-val" id="roi-annual-cost">&euro;24,000</div>
-          <div class="roi-sublabel" id="roi-sub-cost">(480 hrs &times; &euro;50/hr)</div>
-        </div>
-        <div class="roi-out">
-          <label>Estimated rework volume</label>
-          <div class="roi-val roi-val-sm" id="roi-rework">~72 documents/year require resubmission</div>
-          <div class="roi-sublabel" id="roi-sub-rework">(20 docs/month &times; 30% &times; 12)</div>
+      <div class="roi-state-wrap">
+        <div class="roi-outputs roi-2col roi-outputs-mb0">
+          <div class="roi-out">
+            <label>Estimated annual time on compliance admin</label>
+            <div class="roi-val" id="roi-annual-time">480 hours/year</div>
+            <div class="roi-sublabel" id="roi-sub-time">(40 hrs/month &times; 12)</div>
+          </div>
+          <div class="roi-out">
+            <label>Estimated annual cost of manual review</label>
+            <div class="roi-val" id="roi-annual-cost">&euro;24,000</div>
+            <div class="roi-sublabel" id="roi-sub-cost">(480 hrs &times; &euro;50/hr)</div>
+          </div>
         </div>
       </div>
 
       <div class="roi-section-divider"></div>
 
       <div class="roi-section-label">With ComplyScope</div>
-      <div class="roi-outputs roi-outputs-mb0">
-        <div class="roi-out">
-          <label>Estimated workload reduction</label>
-          <div class="roi-val">30&ndash;60%</div>
-          <div class="roi-sublabel">Typical range for document management systemisation</div>
-        </div>
-        <div class="roi-out">
-          <label>Hours returned to higher-value work</label>
-          <div class="roi-val" id="roi-hours-returned">144&ndash;288 hours/year</div>
-        </div>
-        <div class="roi-out">
-          <label>Estimated annual cost after systemisation</label>
-          <div class="roi-val" id="roi-cost-after">&euro;9,600 &ndash; &euro;16,800</div>
+      <div class="roi-cs-wrap">
+        <div class="roi-outputs roi-outputs-mb0">
+          <div class="roi-out">
+            <label>Estimated workload reduction</label>
+            <div class="roi-val">30&ndash;60%</div>
+            <div class="roi-sublabel">Typical range for document management systemisation</div>
+          </div>
+          <div class="roi-out">
+            <label>Hours returned to higher-value work</label>
+            <div class="roi-val" id="roi-hours-returned">144&ndash;288 hours/year</div>
+          </div>
+          <div class="roi-out">
+            <label>Estimated annual cost after systemisation</label>
+            <div class="roi-val" id="roi-cost-after">&euro;9,600 &ndash; &euro;16,800</div>
+            <div class="roi-sublabel">Based on 30&ndash;60% reduction in annual review cost</div>
+          </div>
         </div>
       </div>
 
       <div class="roi-section-divider"></div>
 
       <div class="roi-section-label">Financial Impact</div>
-      <div class="roi-outputs roi-2col roi-outputs-mb0">
-        <div class="roi-out roi-savings">
-          <label>Estimated annual savings</label>
-          <div class="roi-val" id="roi-savings">&euro;7,200 &ndash; &euro;14,400</div>
-        </div>
-        <div class="roi-out">
-          <label>Estimated return relative to subscription</label>
-          <div class="roi-val roi-val-sm roi-val-muted" id="roi-multiples">Compliance Register: 3.6&times; &ndash; 7.2&times;<br>Full Suite: 1.4&times; &ndash; 2.9&times;</div>
+      <div class="roi-fi-wrap">
+        <div class="roi-outputs roi-2col roi-outputs-mb0">
+          <div class="roi-out roi-savings">
+            <label>Estimated annual savings</label>
+            <div class="roi-val" id="roi-savings">&euro;7,200 &ndash; &euro;14,400</div>
+          </div>
+          <div class="roi-out">
+            <label>Estimated return relative to subscription</label>
+            <div class="roi-val roi-val-sm roi-val-muted" id="roi-multiples">Compliance Register: 1.5&times; &ndash; 3.0&times;<br>Full Suite: 0.8&times; &ndash; 1.6&times;</div>
+          </div>
         </div>
       </div>
 
@@ -653,21 +654,16 @@
   }
 
   function calcROI() {
-    var docs  = parseFloat(document.getElementById('roi-docs').value)  || 0;
     var hours = parseFloat(document.getElementById('roi-hours').value) || 0;
     var rate  = parseFloat(document.getElementById('roi-rate').value)  || 0;
-    var resub = parseFloat(document.getElementById('roi-resub').value) || 0;
 
     var annualHours = hours * 12;
     var annualCost  = hours * rate * 12;
-    var reworkDocs  = docs * (resub / 100) * 12;
 
     document.getElementById('roi-annual-time').textContent = fmt0(annualHours) + ' hours/year';
     document.getElementById('roi-sub-time').textContent    = '(' + fmt0(hours) + ' hrs/month × 12)';
     document.getElementById('roi-annual-cost').textContent = '€' + fmt0(annualCost);
     document.getElementById('roi-sub-cost').textContent    = '(' + fmt0(annualHours) + ' hrs × €' + fmt0(rate) + '/hr)';
-    document.getElementById('roi-rework').textContent      = '~' + fmt0(reworkDocs) + ' documents/year require resubmission';
-    document.getElementById('roi-sub-rework').textContent  = '(' + fmt0(docs) + ' docs/month × ' + fmt0(resub) + '% × 12)';
 
     var hoursLow  = annualHours * 0.3;
     var hoursHigh = annualHours * 0.6;
@@ -679,8 +675,8 @@
 
     var savingsLow  = annualCost * 0.3;
     var savingsHigh = annualCost * 0.6;
-    var crAnnual    = 1990;
-    var fsAnnual    = 5000;
+    var crAnnual    = 4788;
+    var fsAnnual    = 9000;
 
     document.getElementById('roi-savings').textContent = '€' + fmt0(savingsLow) + ' – €' + fmt0(savingsHigh);
     document.getElementById('roi-multiples').innerHTML =
