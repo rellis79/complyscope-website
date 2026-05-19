@@ -465,16 +465,16 @@
     <!-- ROI Calculator -->
     <p class="section-label" style="margin-bottom:12px;">ROI Calculator</p>
     <div class="roi-section">
-      <h3>What does manual document review cost you?</h3>
+      <h3>What does managing compliance documents manually cost you?</h3>
       <p class="roi-intro">Enter your numbers. See your return.</p>
       <div class="roi-inputs">
         <div class="roi-ig">
-          <label>Hours spent on compliance review per month</label>
+          <label>Hours spent on compliance document review and organisation per month</label>
           <input type="number" id="roi-hours" value="40" min="1" oninput="calcROI()">
-          <small>Include admin, follow-ups and resubmissions</small>
+          <small>Include reviewing incoming documents, organising records, chasing certs, and following up on resubmissions</small>
         </div>
         <div class="roi-ig">
-          <label>Hourly cost of reviewer (&euro;)</label>
+          <label>Hourly cost of person managing compliance (&euro;)</label>
           <input type="number" id="roi-rate" value="50" min="1" oninput="calcROI()">
           <small>Use fully loaded cost including on-costs</small>
         </div>
@@ -484,12 +484,12 @@
       <div class="roi-state-wrap">
         <div class="roi-outputs roi-2col roi-outputs-mb0">
           <div class="roi-out">
-            <label>Estimated annual time on compliance admin</label>
+            <label>Estimated annual time on compliance document management</label>
             <div class="roi-val" id="roi-annual-time">480 hours/year</div>
             <div class="roi-sublabel" id="roi-sub-time">(40 hrs/month &times; 12)</div>
           </div>
           <div class="roi-out">
-            <label>Estimated annual cost of manual review</label>
+            <label>Estimated annual cost of manual compliance management</label>
             <div class="roi-val" id="roi-annual-cost">&euro;24,000</div>
             <div class="roi-sublabel" id="roi-sub-cost">(480 hrs &times; &euro;50/hr)</div>
           </div>
@@ -513,7 +513,7 @@
           <div class="roi-out">
             <label>Estimated annual cost after systemisation</label>
             <div class="roi-val" id="roi-cost-after">&euro;9,600 &ndash; &euro;16,800</div>
-            <div class="roi-sublabel">Based on 30&ndash;60% reduction in annual review cost</div>
+            <div class="roi-sublabel">Based on 30&ndash;60% reduction in annual compliance management cost</div>
           </div>
         </div>
       </div>
@@ -528,7 +528,7 @@
         </div>
       </div>
 
-      <div class="roi-position-line">ComplyScope reduces manual review workload and improves document control. It does not replace responsibility for compliance.</div>
+      <div class="roi-position-line">ComplyScope reduces the time spent on manual document review and organisation. It does not replace responsibility for compliance.</div>
       <p class="roi-disclaimer">Estimates are based on your inputs and typical workload reductions observed in document management systems (30&ndash;60%). Actual impact will vary depending on internal processes, document quality, and contractor compliance.</p>
       <a href="https://app.complyscope.ie/signup" class="btn-primary">Start free &mdash; no card required &rarr;</a>
     </div>
