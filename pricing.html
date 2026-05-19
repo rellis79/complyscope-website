@@ -395,7 +395,7 @@
         <p class="price-tier">Compliance Register</p>
         <p class="price-card-title">Organise and track your compliance documents</p>
         <p class="price-card-desc">All your registers in one place &mdash; personnel, plant, insurance, RAMS, chemical agents</p>
-        <div class="price-amount"><span class="currency">&euro;</span><span id="price-register">399</span></div>
+        <div class="price-amount"><span class="currency">&euro;</span><span id="price-register">199</span></div>
         <p class="price-period" id="period-register">per month, ex. VAT</p>
         <p class="price-annual-note" id="note-register">&nbsp;</p>
         <ul class="price-features">
@@ -418,7 +418,7 @@
         <p class="price-tier">Full Suite</p>
         <p class="price-card-title">Gap Analysis + Compliance Register</p>
         <p class="price-card-desc">Complete compliance management &mdash; registers, gap analysis, and certification review</p>
-        <div class="price-amount"><span class="currency">&euro;</span><span id="price-suite">750</span></div>
+        <div class="price-amount"><span class="currency">&euro;</span><span id="price-suite">500</span></div>
         <p class="price-period" id="period-suite">per month, ex. VAT</p>
         <p class="price-annual-note" id="note-suite">&nbsp;</p>
         <ul class="price-features">
@@ -476,7 +476,7 @@
         </div>
         <div class="roi-out">
           <label>Compliance Register / Full Suite (annual)</label>
-          <div class="roi-val" style="font-size:18px; line-height:1.5;" id="out-cs-cost">&euro;4,788 &nbsp;/&nbsp; &euro;9,000</div>
+          <div class="roi-val" style="font-size:18px; line-height:1.5;" id="out-cs-cost">&euro;2,388 &nbsp;/&nbsp; &euro;6,000</div>
         </div>
         <div class="roi-out roi-green">
           <label>Annual saving (vs Compliance Register)</label>
@@ -583,17 +583,17 @@
     document.getElementById('lbl-monthly').classList.toggle('active', !isAnnual);
     document.getElementById('lbl-annual').classList.toggle('active', isAnnual);
     if (isAnnual) {
-      document.getElementById('price-register').textContent = '3,990';
+      document.getElementById('price-register').textContent = '1,990';
       document.getElementById('period-register').textContent = 'per year, ex. VAT';
-      document.getElementById('note-register').textContent = 'Save €798 vs monthly';
-      document.getElementById('price-suite').textContent = '7,500';
+      document.getElementById('note-register').textContent = 'Save €398 vs monthly';
+      document.getElementById('price-suite').textContent = '5,000';
       document.getElementById('period-suite').textContent = 'per year, ex. VAT';
-      document.getElementById('note-suite').textContent = 'Save €1,500 vs monthly';
+      document.getElementById('note-suite').textContent = 'Save €1,000 vs monthly';
     } else {
-      document.getElementById('price-register').textContent = '399';
+      document.getElementById('price-register').textContent = '199';
       document.getElementById('period-register').textContent = 'per month, ex. VAT';
       document.getElementById('note-register').innerHTML = '&nbsp;';
-      document.getElementById('price-suite').textContent = '750';
+      document.getElementById('price-suite').textContent = '500';
       document.getElementById('period-suite').textContent = 'per month, ex. VAT';
       document.getElementById('note-suite').innerHTML = '&nbsp;';
     }
@@ -615,7 +615,7 @@
     var monthlyHours = rams * hours * resubFactor;
     var monthlyCost = monthlyHours * rate;
     var annualCost = monthlyCost * 12;
-    var csRegister = 4788;
+    var csRegister = 2388;
     var saving = annualCost - csRegister;
     var roi = csRegister > 0 ? (annualCost / csRegister) : 0;
     var hoursPerYear = monthlyHours * 12;
