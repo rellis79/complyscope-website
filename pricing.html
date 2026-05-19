@@ -284,6 +284,9 @@
     .roi-label-state { color:#8b2500 !important; }
     .roi-label-cs    { color:#1a5c3a !important; }
     .roi-label-fi    { color:#b8841e !important; }
+    .roi-fi-line { font-size:13px; color:var(--muted); margin-top:8px; line-height:1.5; }
+    .roi-fi-val  { color:#2e7d32; font-family:Georgia,serif; font-size:15px; font-weight:700; }
+    .roi-fi-note { font-size:11px; color:var(--muted); font-style:italic; margin-top:10px; line-height:1.5; }
 
     /* ── DISCLAIMER ── */
     .disclaimer {
@@ -469,7 +472,7 @@
       <p class="roi-intro">Enter your numbers. See your return.</p>
       <div class="roi-inputs">
         <div class="roi-ig">
-          <label>Hours spent on compliance document review and organisation per month</label>
+          <label>Hours per month on compliance documents</label>
           <input type="number" id="roi-hours" value="40" min="1" oninput="calcROI()">
           <small>Include reviewing incoming documents, organising records, chasing certs, and following up on resubmissions</small>
         </div>
@@ -522,9 +525,18 @@
 
       <div class="roi-section-label roi-label-fi">Financial Impact</div>
       <div class="roi-fi-wrap">
-        <div class="roi-out roi-savings">
-          <label>Estimated annual savings</label>
-          <div class="roi-val" id="roi-savings">&euro;7,200 &ndash; &euro;14,400</div>
+        <div class="roi-outputs roi-2col roi-outputs-mb0">
+          <div class="roi-out">
+            <label>Compliance Register &mdash; &euro;199/month</label>
+            <p class="roi-fi-line">Estimated annual saving: <span class="roi-fi-val" id="roi-cr-saving">&euro;7,200 &ndash; &euro;14,400</span></p>
+            <p class="roi-fi-line">Estimated net saving after subscription: <span class="roi-fi-val" id="roi-cr-net">&euro;4,812 &ndash; &euro;12,012</span></p>
+          </div>
+          <div class="roi-out">
+            <label>Full Suite &mdash; &euro;500/month</label>
+            <p class="roi-fi-line">Estimated annual saving: <span class="roi-fi-val" id="roi-fs-saving">&euro;7,200 &ndash; &euro;14,400</span></p>
+            <p class="roi-fi-line">Estimated net saving after subscription: <span class="roi-fi-val" id="roi-fs-net">&euro;1,200 &ndash; &euro;8,400</span></p>
+            <p class="roi-fi-note">Full Suite additionally reduces compliance risk and HSA liability exposure &mdash; not captured in this estimate.</p>
+          </div>
         </div>
       </div>
 
@@ -670,8 +682,18 @@
 
     var savingsLow  = annualCost * 0.3;
     var savingsHigh = annualCost * 0.6;
+    var crAnnual    = 2388;
+    var fsAnnual    = 6000;
 
-    document.getElementById('roi-savings').textContent = '€' + fmt0(savingsLow) + ' – €' + fmt0(savingsHigh);
+    var crNetLow  = Math.max(0, savingsLow  - crAnnual);
+    var crNetHigh = Math.max(0, savingsHigh - crAnnual);
+    var fsNetLow  = Math.max(0, savingsLow  - fsAnnual);
+    var fsNetHigh = Math.max(0, savingsHigh - fsAnnual);
+
+    document.getElementById('roi-cr-saving').textContent = '€' + fmt0(savingsLow)  + ' – €' + fmt0(savingsHigh);
+    document.getElementById('roi-cr-net').textContent    = '€' + fmt0(crNetLow)    + ' – €' + fmt0(crNetHigh);
+    document.getElementById('roi-fs-saving').textContent = '€' + fmt0(savingsLow)  + ' – €' + fmt0(savingsHigh);
+    document.getElementById('roi-fs-net').textContent    = '€' + fmt0(fsNetLow)    + ' – €' + fmt0(fsNetHigh);
   }
 </script>
 
