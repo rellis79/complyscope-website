@@ -561,20 +561,19 @@
     }
 
     /* ── METRICS BAR ── */
-    .metrics-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 48px 6vw; }
+    .metrics-bar { background: var(--navy); border-bottom: 1px solid rgba(244,240,232,0.1); padding: 28px 6vw; }
     .metrics-grid {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr 1fr;
-      border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
+      max-width: 700px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
     }
-    .metric-card { padding: 36px 40px; border-right: 1px solid var(--border); background: var(--white); }
+    .metric-card { padding: 24px 32px; text-align: center; border-right: 1px solid rgba(244,240,232,0.12); }
     .metric-card:last-child { border-right: none; }
     .metric-value {
       display: block; font-family: Georgia, serif;
-      font-size: clamp(28px, 2.8vw, 42px); font-weight: 700;
-      color: var(--navy); line-height: 1.1; margin-bottom: 10px;
+      font-size: clamp(36px, 3.5vw, 56px); font-weight: 700;
+      color: var(--gold-lt); line-height: 1.1; margin-bottom: 8px;
     }
-    .metric-label { display: block; font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .metric-label { display: block; font-size: 13px; color: rgba(244,240,232,0.65); line-height: 1.6; }
 
     /* ── HOW IT WORKS — 4-STEP FLOW ── */
     .how-flow { display: flex; align-items: stretch; margin-top: 28px; }
@@ -593,7 +592,7 @@
 
     @media (max-width: 768px) {
       .metrics-grid { grid-template-columns: 1fr; }
-      .metric-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .metric-card { border-right: none; border-bottom: 1px solid rgba(244,240,232,0.12); }
       .metric-card:last-child { border-bottom: none; }
       .how-flow { flex-direction: column; }
       .how-step-v2 + .how-step-v2 { border-left: 1px solid var(--border); border-top: none; }
@@ -668,7 +667,7 @@
           <span style="font-size:12px; color:rgba(244,240,232,0.65); letter-spacing:0.04em;">Compliance areas checked</span>
         </div>
         <div>
-          <span style="display:block; font-family:Georgia,serif; font-size:28px; font-weight:700; color:var(--gold); line-height:1;">15+</span>
+          <span style="display:block; font-family:Georgia,serif; font-size:28px; font-weight:700; color:var(--gold); line-height:1;">20+</span>
           <span style="font-size:12px; color:rgba(244,240,232,0.65); letter-spacing:0.04em;">Years HSEQ calibration</span>
         </div>
         <div>
@@ -765,10 +764,6 @@
     <div class="metric-card">
       <span class="metric-value">20+</span>
       <span class="metric-label">Years of HSEQ experience calibrating the software</span>
-    </div>
-    <div class="metric-card">
-      <span class="metric-value">5</span>
-      <span class="metric-label">Compliance registers &mdash; personnel, plant, insurance, RAMS and chemical agents</span>
     </div>
     <div class="metric-card">
       <span class="metric-value">100%</span>
@@ -1043,7 +1038,7 @@
     <div style="max-width:760px; margin:0 auto;">
       <p style="margin-bottom:16px;"><a href="#" onclick="document.getElementById('main-page').style.display='block'; document.getElementById('about-page').style.display='none'; window.scrollTo(0,0); return false;" style="color:rgba(255,255,255,0.5); font-size:13px; text-decoration:none; letter-spacing:0.05em;">&larr; Back</a></p>
       <p style="font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:16px;">About ComplyScope</p>
-      <h1 style="font-family:Georgia,serif; font-size:clamp(28px,4vw,42px); font-weight:700; line-height:1.18; margin-bottom:20px;">Built from 15+ years of real HSEQ document review.</h1>
+      <h1 style="font-family:Georgia,serif; font-size:clamp(28px,4vw,42px); font-weight:700; line-height:1.18; margin-bottom:20px;">Built from 20+ years of real HSEQ document review.</h1>
       <p style="font-size:18px; color:rgba(255,255,255,0.65); max-width:560px; line-height:1.7;">ComplyScope was built from hands-on HSEQ experience across construction, infrastructure and energy projects in Ireland and internationally.</p>
     </div>
   </div>
