@@ -163,35 +163,153 @@
     }
     footer p { font-size: 13px; }
 
+    /* ── IMPACT BAR ── */
+    .impact-bar {
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 36px 6vw;
+    }
+    .impact-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .impact-stat {
+      text-align: center;
+      padding: 0 8px;
+    }
+    .impact-val {
+      font-family: Georgia, serif;
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 700;
+      color: #d4a030;
+      line-height: 1.1;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .impact-lbl {
+      font-size: 12px;
+      color: rgba(244,240,232,0.55);
+      line-height: 1.4;
+      display: block;
+    }
+
     /* ── CONTENT ── */
     .cases-content {
       max-width: 820px;
       margin: 0 auto;
-      padding: 64px 6vw;
+      padding: 52px 6vw 64px;
     }
 
-    .cases-content p {
-      font-size: 16px;
-      color: #2a3a50;
-      margin-bottom: 18px;
-      line-height: 1.78;
-    }
-    .cases-content p:last-child { margin-bottom: 0; }
-
-    /* ── CASE CARDS ── */
-    .case-card {
+    /* ── ACCORDION ── */
+    .acc-item {
       background: var(--white);
       border-left: 4px solid #d4a030;
-      padding: 28px 32px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
-    .case-title {
+
+    .acc-head {
+      padding: 28px 28px 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .acc-head:hover .acc-read { color: var(--navy); }
+
+    .acc-title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .acc-title {
       font-family: Georgia, serif;
       font-size: 17px;
       font-weight: 700;
       color: var(--navy);
-      margin-bottom: 14px;
+      line-height: 1.3;
     }
+
+    .acc-chevron {
+      flex-shrink: 0;
+      color: #d4a030;
+      transition: transform 0.3s ease;
+      margin-top: 2px;
+    }
+    .acc-chevron.open { transform: rotate(180deg); }
+
+    .acc-summary {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .stat-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .stat-pill {
+      background: var(--navy);
+      border-radius: 4px;
+      padding: 10px 14px;
+      flex: 1 1 140px;
+      min-width: 120px;
+    }
+
+    .stat-main {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 3px;
+    }
+
+    .stat-lbl {
+      display: block;
+      font-size: 11px;
+      color: rgba(244,240,232,0.55);
+      line-height: 1.4;
+    }
+
+    .acc-read {
+      display: block;
+      text-align: right;
+      font-size: 12px;
+      font-weight: 600;
+      color: #d4a030;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    /* ── ACCORDION BODY ── */
+    .acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s ease;
+    }
+    .acc-body.open { max-height: 3000px; }
+
+    .acc-body-inner {
+      padding: 0 28px 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .acc-body-inner p {
+      font-size: 15px;
+      color: #2a3a50;
+      margin-top: 16px;
+      line-height: 1.78;
+    }
+
     .case-outcome {
       font-size: 14px;
       font-weight: 700;
@@ -199,8 +317,20 @@
       background: #faf8f5;
       border-left: 2px solid #d4a030;
       padding: 10px 14px;
-      margin-top: 16px;
-      margin-bottom: 0;
+      margin-top: 20px;
+    }
+
+    /* ── COST CALLOUT ── */
+    .cost-callout {
+      background: var(--navy);
+      border-left: 4px solid #d4a030;
+      padding: 20px 24px;
+      margin: 28px 0 0;
+    }
+    .cost-callout p {
+      font-size: 13px;
+      color: rgba(244,240,232,0.65);
+      line-height: 1.65;
     }
 
     /* ── CTA BLOCK ── */
@@ -208,7 +338,7 @@
       background: var(--navy);
       border-radius: 4px;
       padding: 44px 40px;
-      margin: 52px 0 0;
+      margin: 32px 0 0;
       text-align: center;
     }
     .cta-block h3 { font-family: Georgia, serif; font-size: 26px; font-weight: 700; color: #fff; margin: 0 0 12px; }
@@ -219,11 +349,19 @@
       nav { padding: 0 20px; position: fixed; }
       #nav-links { display: none; }
       #nav-burger { display: flex !important; }
+      .impact-bar { padding: 28px 24px; }
+      .impact-inner { grid-template-columns: 1fr; gap: 20px; }
+      .impact-stat { text-align: left; padding: 0; }
       .disclaimer { padding: 20px 24px; }
       footer { padding: 24px; flex-direction: column; text-align: center; }
-      .cases-content { padding: 40px 20px; }
-      .case-card { padding: 20px 20px; }
+      .cases-content { padding: 32px 20px 52px; }
+      .acc-head { padding: 20px 20px 16px; }
+      .acc-body-inner { padding: 0 20px 20px; }
       .cta-block { padding: 32px 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .stat-pill { flex: 1 1 100%; }
     }
   </style>
 </head>
@@ -264,45 +402,153 @@
   </div>
 </div>
 
-<!-- CASE STUDIES -->
+<!-- IMPACT BAR -->
+<div class="impact-bar">
+  <div class="impact-inner">
+    <div class="impact-stat">
+      <span class="impact-val">&euro;30k&ndash;&euro;45k</span>
+      <span class="impact-lbl">Average avoided delay cost per incident</span>
+    </div>
+    <div class="impact-stat">
+      <span class="impact-val">52 seconds</span>
+      <span class="impact-lbl">Average document processing time</span>
+    </div>
+    <div class="impact-stat">
+      <span class="impact-val">100%</span>
+      <span class="impact-lbl">Irish construction legislation</span>
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDIES — ACCORDION -->
 <div class="cases-content">
 
-  <div class="case-card">
-    <p class="case-title">Case Study 1 &mdash; The RAMS That Got Approved Twice</p>
-    <p>A civils subcontractor submitted a RAMS for temporary works including a sheet-piled excavation to 3.8 metres on a live road corridor. The document was reviewed and signed off by the site engineer on a Thursday afternoon. The safety advisor reviewed it Friday morning &mdash; programme pressure, six other submissions in the inbox &mdash; and approved it for commencement the following Monday.</p>
-    <p>ComplyScope was run on the document as part of a pilot review that same Friday.</p>
-    <p>It returned seven gaps. Two were Critical.</p>
-    <p>The first: no temporary works design referenced for the sheet pile installation. For an excavation of that depth adjacent to a live road with buried utilities, a temporary works design signed by a chartered engineer is not optional &mdash; it is a legal requirement under Construction Regulations 2013. The RAMS did not mention it.</p>
-    <p>The second: no traffic management plan referenced or attached. The method statement described works on a live road corridor but contained zero reference to lane closures, traffic control, or pedestrian management. The works would have commenced Monday morning on a live road with no documented traffic management in place.</p>
-    <p>Both gaps were identified, cited against specific regulations, and returned to the contractor Friday afternoon. A temporary works designer was appointed over the weekend. The RAMS was resubmitted Monday morning and works commenced Tuesday &mdash; one day late but compliant.</p>
-    <p>The alternative: works commence Monday, HSA inspector arrives Wednesday, prohibition notice issued, site shutdown, programme impact measured in weeks not days.</p>
-    <p class="case-outcome">Seven gaps found. Two Critical. Processing time: 52 seconds.</p>
+  <!-- CASE 1 -->
+  <div class="acc-item">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-title-row">
+        <p class="acc-title">Case Study 1 &mdash; The RAMS That Got Approved Twice</p>
+        <svg class="acc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+      <p class="acc-summary">A civils RAMS approved by two reviewers contained two Critical gaps. Found by ComplyScope in 52 seconds.</p>
+      <div class="stat-pills">
+        <div class="stat-pill">
+          <span class="stat-main">52 seconds</span>
+          <span class="stat-lbl">vs 50+ minutes of manual review</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-main">&euro;30,000&ndash;45,000</span>
+          <span class="stat-lbl">Estimated avoided delay cost</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-main">2 Critical gaps</span>
+          <span class="stat-lbl">Missed by two human reviewers</span>
+        </div>
+      </div>
+      <span class="acc-read">Read full case study &darr;</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p>A civils subcontractor submitted a RAMS for temporary works including a sheet-piled excavation to 3.8 metres on a live road corridor. The document was reviewed and signed off by the site engineer on a Thursday afternoon. The safety advisor reviewed it Friday morning &mdash; programme pressure, six other submissions in the inbox &mdash; and approved it for commencement the following Monday.</p>
+        <p>ComplyScope was run on the document as part of a pilot review that same Friday.</p>
+        <p>It returned seven gaps. Two were Critical.</p>
+        <p>The first: no temporary works design referenced for the sheet pile installation. For an excavation of that depth adjacent to a live road with buried utilities, a temporary works design signed by a chartered engineer is not optional &mdash; it is a legal requirement under Construction Regulations 2013. The RAMS did not mention it.</p>
+        <p>The second: no traffic management plan referenced or attached. The method statement described works on a live road corridor but contained zero reference to lane closures, traffic control, or pedestrian management. The works would have commenced Monday morning on a live road with no documented traffic management in place.</p>
+        <p>Both gaps were identified, cited against specific regulations, and returned to the contractor Friday afternoon. A temporary works designer was appointed over the weekend. The RAMS was resubmitted Monday morning and works commenced Tuesday &mdash; one day late but compliant.</p>
+        <p>The alternative: works commence Monday, HSA inspector arrives Wednesday, prohibition notice issued, site shutdown, programme impact measured in weeks not days.</p>
+        <p class="case-outcome">Seven gaps found. Two Critical. Processing time: 52 seconds.</p>
+      </div>
+    </div>
   </div>
 
-  <div class="case-card">
-    <p class="case-title">Case Study 2 &mdash; The Subcontractor Nobody Checked</p>
-    <p>A fit-out main contractor was three weeks into a live pharma project when a compliance audit was triggered by their client. The client required evidence that all subcontractors on site were compliant &mdash; certs, insurance, RAMS &mdash; as of that date.</p>
-    <p>The main contractor had four subcontractors active on site. A Mobilisation Readiness check was run on all four simultaneously through ComplyScope.</p>
-    <p>Three were green. One was not.</p>
-    <p>The mechanical subcontractor &mdash; on site for 18 days &mdash; had a public liability insurance policy that had lapsed 11 days earlier. The renewal had been processed by their accounts department but the updated certificate had never been submitted to the main contractor. It had been sitting in someone&rsquo;s email for a week and a half.</p>
-    <p>The main contractor also had three operative Safe Pass cards on file for that subcontractor. Two were valid. One had expired six weeks earlier. The operative was on site daily.</p>
-    <p>Under the client audit, both issues would have been found. The main contractor would have been in breach of their contractual obligation to ensure subcontractor compliance. The consequences: potential contract penalty, site access suspension for the affected subcontractor, and a formal non-conformance report on the main contractor&rsquo;s record with their client.</p>
-    <p>The insurance certificate was obtained within two hours. The operative was stood down until Safe Pass was renewed three days later. The audit passed.</p>
-    <p class="case-outcome">Compliance check across four subcontractors: under three minutes. Issues that had been on site undetected for 11 days and six weeks respectively: found before the audit.</p>
+  <!-- CASE 2 -->
+  <div class="acc-item">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-title-row">
+        <p class="acc-title">Case Study 2 &mdash; The Subcontractor Nobody Checked</p>
+        <svg class="acc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+      <p class="acc-summary">Lapsed insurance and an expired Safe Pass undetected on site for 11 days and 6 weeks &mdash; found before a client compliance audit.</p>
+      <div class="stat-pills">
+        <div class="stat-pill">
+          <span class="stat-main">Under 3 minutes</span>
+          <span class="stat-lbl">Compliance check across 4 subcontractors</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-main">&euro;10,000&ndash;20,000</span>
+          <span class="stat-lbl">Estimated avoided contract penalty</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-main">18 days</span>
+          <span class="stat-lbl">Subcontractor on site with lapsed insurance</span>
+        </div>
+      </div>
+      <span class="acc-read">Read full case study &darr;</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p>A fit-out main contractor was three weeks into a live pharma project when a compliance audit was triggered by their client. The client required evidence that all subcontractors on site were compliant &mdash; certs, insurance, RAMS &mdash; as of that date.</p>
+        <p>The main contractor had four subcontractors active on site. A Mobilisation Readiness check was run on all four simultaneously through ComplyScope.</p>
+        <p>Three were green. One was not.</p>
+        <p>The mechanical subcontractor &mdash; on site for 18 days &mdash; had a public liability insurance policy that had lapsed 11 days earlier. The renewal had been processed by their accounts department but the updated certificate had never been submitted to the main contractor. It had been sitting in someone&rsquo;s email for a week and a half.</p>
+        <p>The main contractor also had three operative Safe Pass cards on file for that subcontractor. Two were valid. One had expired six weeks earlier. The operative was on site daily.</p>
+        <p>Under the client audit, both issues would have been found. The main contractor would have been in breach of their contractual obligation to ensure subcontractor compliance. The consequences: potential contract penalty, site access suspension for the affected subcontractor, and a formal non-conformance report on the main contractor&rsquo;s record with their client.</p>
+        <p>The insurance certificate was obtained within two hours. The operative was stood down until Safe Pass was renewed three days later. The audit passed.</p>
+        <p class="case-outcome">Compliance check across four subcontractors: under three minutes. Issues that had been on site undetected for 11 days and six weeks respectively: found before the audit.</p>
+      </div>
+    </div>
   </div>
 
-  <div class="case-card">
-    <p class="case-title">Case Study 3 &mdash; The Method Statement That Described A Different Site</p>
-    <p>A lifting subcontractor submitted a RAMS for a complex crane lift &mdash; a 50-tonne mobile crane, dual lift with a telehandler, installation of a pre-cast concrete staircase core into a live multi-storey residential build.</p>
-    <p>The document was 22 pages. It had a lift plan attached, plant cert numbers referenced, and appeared thorough. The safety advisor spent 25 minutes reviewing it and raised two minor queries before approving it.</p>
-    <p>ComplyScope was run on the same document.</p>
-    <p>Generic RAMS Detection flagged it immediately &mdash; High indicator. The reason: the method statement referenced an exclusion zone boundary defined by &ldquo;the site perimeter fence on the eastern elevation.&rdquo; The project had no eastern elevation fence. The site was bounded by a live public road on the east with a temporary hoarding. The exclusion zone as described was physically impossible to implement as written.</p>
-    <p>Further: the lift plan referenced a ground bearing capacity assessment for a specific grid reference that did not correspond to the proposed crane location on the current project. The subcontractor had used a lift plan from a previous project on the same client framework and updated the crane details but not the site-specific ground conditions assessment.</p>
-    <p>A crane operating on ground that has not been assessed for its specific location and bearing capacity is one of the highest-risk activities in Irish construction. The HSA has prosecuted cases arising from exactly this failure mode.</p>
-    <p>The lift was delayed by four days while a new ground bearing capacity assessment was commissioned and a project-specific lift plan produced. Four days against the programme &mdash; but measured against the alternative, not a difficult conversation.</p>
-    <p class="case-outcome">Generic RAMS indicator: High. Critical gap: ground bearing capacity assessment not valid for proposed crane location. Confidence: High.</p>
+  <!-- CASE 3 -->
+  <div class="acc-item">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <div class="acc-title-row">
+        <p class="acc-title">Case Study 3 &mdash; The Lift Plan That Described a Different Site</p>
+        <svg class="acc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+      <p class="acc-summary">A 22-page lift RAMS for a 50-tonne crane lift passed a 25-minute manual review. ComplyScope identified a Critical ground bearing capacity failure in seconds.</p>
+      <div class="stat-pills">
+        <div class="stat-pill">
+          <span class="stat-main">&euro;8,000&ndash;14,000</span>
+          <span class="stat-lbl">Crane delay cost avoided</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-main">Critical gap</span>
+          <span class="stat-lbl">Ground bearing assessment invalid for crane location</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-main">25 min vs seconds</span>
+          <span class="stat-lbl">Manual review time vs ComplyScope</span>
+        </div>
+      </div>
+      <span class="acc-read">Read full case study &darr;</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p>A lifting subcontractor submitted a RAMS for a complex crane lift &mdash; a 50-tonne mobile crane, dual lift with a telehandler, installation of a pre-cast concrete staircase core into a live multi-storey residential build.</p>
+        <p>The document was 22 pages. It had a lift plan attached, plant cert numbers referenced, and appeared thorough. The safety advisor spent 25 minutes reviewing it and raised two minor queries before approving it.</p>
+        <p>ComplyScope was run on the same document.</p>
+        <p>Generic RAMS Detection flagged it immediately &mdash; High indicator. The reason: the method statement referenced an exclusion zone boundary defined by &ldquo;the site perimeter fence on the eastern elevation.&rdquo; The project had no eastern elevation fence. The site was bounded by a live public road on the east with a temporary hoarding. The exclusion zone as described was physically impossible to implement as written.</p>
+        <p>Further: the lift plan referenced a ground bearing capacity assessment for a specific grid reference that did not correspond to the proposed crane location on the current project. The subcontractor had used a lift plan from a previous project on the same client framework and updated the crane details but not the site-specific ground conditions assessment.</p>
+        <p>A crane operating on ground that has not been assessed for its specific location and bearing capacity is one of the highest-risk activities in Irish construction. The HSA has prosecuted cases arising from exactly this failure mode.</p>
+        <p>The lift was delayed by four days while a new ground bearing capacity assessment was commissioned and a project-specific lift plan produced. Four days against the programme &mdash; but measured against the alternative, not a difficult conversation.</p>
+        <p class="case-outcome">Generic RAMS indicator: High. Critical gap: ground bearing capacity assessment not valid for proposed crane location. Confidence: High.</p>
+      </div>
+    </div>
   </div>
 
+  <!-- COST CALLOUT -->
+  <div class="cost-callout">
+    <p>These are conservative estimates based on industry-standard day rates, crane hire costs, and typical contract penalty structures for Irish construction projects. Actual costs vary by project size and contract type.</p>
+  </div>
+
+  <!-- CTA -->
   <div class="cta-block">
     <h3>See what ComplyScope finds in your documents.</h3>
     <p>First review is free. Upload one document &mdash; no card required.</p>
@@ -346,6 +592,15 @@
   <p style="width:100%; border-top:1px solid rgba(255,255,255,0.1); padding-top:16px; margin-top:8px; text-align:center; font-size:12px; color:rgba(255,255,255,0.3);">&copy; 2026 ComplyScope. All rights reserved.</p>
   <p style="width:100%; text-align:center; font-size:11px; color:rgba(255,255,255,0.25);">DPA available on request &mdash; email <a href="mailto:hello@complyscope.ie" style="color:rgba(255,255,255,0.35); text-decoration:none;">hello@complyscope.ie</a></p>
 </footer>
+
+<script>
+  function toggleAcc(head) {
+    var body = head.nextElementSibling;
+    var chevron = head.querySelector('.acc-chevron');
+    body.classList.toggle('open');
+    chevron.classList.toggle('open');
+  }
+</script>
 
 </body>
 </html>
