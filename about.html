@@ -323,13 +323,6 @@
       line-height: 1.65;
     }
 
-    /* ── CASE STUDIES ── */
-    .case-section { border-top: 1px solid var(--border); padding-top: 52px; margin-top: 52px; }
-    .case-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #d4a030; font-weight: 700; margin-bottom: 0; }
-    .case-card { background: var(--white); border-left: 4px solid #d4a030; padding: 28px 32px; margin-bottom: 16px; }
-    .case-title { font-family: Georgia, serif; font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 14px; }
-    .case-outcome { font-size: 14px; font-weight: 700; color: var(--navy); background: #faf8f5; border-left: 2px solid #d4a030; padding: 10px 14px; margin-top: 16px; margin-bottom: 0; }
-
     /* ── FAQ ── */
     .faq-item { border-top: 1px solid var(--border); padding: 20px 0; }
     .faq-q {
@@ -398,6 +391,7 @@
   <ul id="nav-links">
     <li><a href="index.html#how">How it works</a></li>
     <li><a href="about.html" class="nav-active">About</a></li>
+    <li><a href="cases.html">Case Studies</a></li>
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="contact.html">Contact us</a></li>
     <li><a href="https://app.complyscope.ie/login" style="color:rgba(255,255,255,0.7); font-size:14px; text-decoration:none; padding:6px 14px; border:1px solid rgba(255,255,255,0.25); border-radius:3px;" onmouseover="this.style.borderColor='rgba(255,255,255,0.6)'; this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)'; this.style.color='rgba(255,255,255,0.7)'">Log in</a></li>
@@ -474,49 +468,6 @@
   </div>
   <p style="font-size:14px; color:var(--muted); margin-top:16px;"><a href="https://app.complyscope.ie/signup" style="color:var(--gold); text-decoration:none; font-weight:600;">Start the free trial</a> to see the output first, or <a href="contact.html" style="color:var(--gold); text-decoration:none; font-weight:600;">contact us</a> to discuss your situation. Full pricing is on the <a href="pricing.html" style="color:var(--gold); text-decoration:none; font-weight:600;">pricing page</a>.</p>
 
-  <!-- REAL FINDINGS -->
-  <div class="case-section">
-    <p class="case-eyebrow">REAL FINDINGS</p>
-    <h2 class="no-rule">What ComplyScope finds in practice.</h2>
-    <p class="lead">These are anonymised examples based on real document patterns. Details changed to protect client confidentiality.</p>
-
-    <div class="case-card">
-      <p class="case-title">Case Study 1 &mdash; The RAMS That Got Approved Twice</p>
-      <p>A civils subcontractor submitted a RAMS for temporary works including a sheet-piled excavation to 3.8 metres on a live road corridor. The document was reviewed and signed off by the site engineer on a Thursday afternoon. The safety advisor reviewed it Friday morning &mdash; programme pressure, six other submissions in the inbox &mdash; and approved it for commencement the following Monday.</p>
-      <p>ComplyScope was run on the document as part of a pilot review that same Friday.</p>
-      <p>It returned seven gaps. Two were Critical.</p>
-      <p>The first: no temporary works design referenced for the sheet pile installation. For an excavation of that depth adjacent to a live road with buried utilities, a temporary works design signed by a chartered engineer is not optional &mdash; it is a legal requirement under Construction Regulations 2013. The RAMS did not mention it.</p>
-      <p>The second: no traffic management plan referenced or attached. The method statement described works on a live road corridor but contained zero reference to lane closures, traffic control, or pedestrian management. The works would have commenced Monday morning on a live road with no documented traffic management in place.</p>
-      <p>Both gaps were identified, cited against specific regulations, and returned to the contractor Friday afternoon. A temporary works designer was appointed over the weekend. The RAMS was resubmitted Monday morning and works commenced Tuesday &mdash; one day late but compliant.</p>
-      <p>The alternative: works commence Monday, HSA inspector arrives Wednesday, prohibition notice issued, site shutdown, programme impact measured in weeks not days.</p>
-      <p class="case-outcome">Seven gaps found. Two Critical. Processing time: 52 seconds.</p>
-    </div>
-
-    <div class="case-card">
-      <p class="case-title">Case Study 2 &mdash; The Subcontractor Nobody Checked</p>
-      <p>A fit-out main contractor was three weeks into a live pharma project when a compliance audit was triggered by their client. The client required evidence that all subcontractors on site were compliant &mdash; certs, insurance, RAMS &mdash; as of that date.</p>
-      <p>The main contractor had four subcontractors active on site. A Mobilisation Readiness check was run on all four simultaneously through ComplyScope.</p>
-      <p>Three were green. One was not.</p>
-      <p>The mechanical subcontractor &mdash; on site for 18 days &mdash; had a public liability insurance policy that had lapsed 11 days earlier. The renewal had been processed by their accounts department but the updated certificate had never been submitted to the main contractor. It had been sitting in someone&rsquo;s email for a week and a half.</p>
-      <p>The main contractor also had three operative Safe Pass cards on file for that subcontractor. Two were valid. One had expired six weeks earlier. The operative was on site daily.</p>
-      <p>Under the client audit, both issues would have been found. The main contractor would have been in breach of their contractual obligation to ensure subcontractor compliance. The consequences: potential contract penalty, site access suspension for the affected subcontractor, and a formal non-conformance report on the main contractor&rsquo;s record with their client.</p>
-      <p>The insurance certificate was obtained within two hours. The operative was stood down until Safe Pass was renewed three days later. The audit passed.</p>
-      <p class="case-outcome">Compliance check across four subcontractors: under three minutes. Issues that had been on site undetected for 11 days and six weeks respectively: found before the audit.</p>
-    </div>
-
-    <div class="case-card">
-      <p class="case-title">Case Study 3 &mdash; The Method Statement That Described A Different Site</p>
-      <p>A lifting subcontractor submitted a RAMS for a complex crane lift &mdash; a 50-tonne mobile crane, dual lift with a telehandler, installation of a pre-cast concrete staircase core into a live multi-storey residential build.</p>
-      <p>The document was 22 pages. It had a lift plan attached, plant cert numbers referenced, and appeared thorough. The safety advisor spent 25 minutes reviewing it and raised two minor queries before approving it.</p>
-      <p>ComplyScope was run on the same document.</p>
-      <p>Generic RAMS Detection flagged it immediately &mdash; High indicator. The reason: the method statement referenced an exclusion zone boundary defined by &ldquo;the site perimeter fence on the eastern elevation.&rdquo; The project had no eastern elevation fence. The site was bounded by a live public road on the east with a temporary hoarding. The exclusion zone as described was physically impossible to implement as written.</p>
-      <p>Further: the lift plan referenced a ground bearing capacity assessment for a specific grid reference that did not correspond to the proposed crane location on the current project. The subcontractor had used a lift plan from a previous project on the same client framework and updated the crane details but not the site-specific ground conditions assessment.</p>
-      <p>A crane operating on ground that has not been assessed for its specific location and bearing capacity is one of the highest-risk activities in Irish construction. The HSA has prosecuted cases arising from exactly this failure mode.</p>
-      <p>The lift was delayed by four days while a new ground bearing capacity assessment was commissioned and a project-specific lift plan produced. Four days against the programme &mdash; but measured against the alternative, not a difficult conversation.</p>
-      <p class="case-outcome">Generic RAMS indicator: High. Critical gap: ground bearing capacity assessment not valid for proposed crane location. Confidence: High.</p>
-    </div>
-  </div>
-
   <!-- 5. FAQ -->
   <h2>Questions buyers ask first</h2>
 
@@ -560,7 +511,7 @@
 
 <!-- DISCLAIMER -->
 <div class="disclaimer">
-  <p>This report identifies gaps detected against current Irish legislative requirements at the time of assessment. It does not constitute approval, sign-off, or verification of compliance. Responsibility for document review and approval remains with the duty holder. ComplyScope operates in accordance with EU AI Act transparency requirements. Documentation of our AI determination process is available on request.</p>
+  <p>This report identifies gaps detected against current Irish legislative requirements at the time of assessment. It does not constitute approval, sign-off, or verification of compliance. Responsibility for document review and approval remains with the duty holder. ComplyScope operates in accordance with EU AI Act transparency requirements.</p>
 </div>
 
 <!-- FOOTER -->
